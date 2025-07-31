@@ -20,15 +20,16 @@ cd backend
 pip install -r requirements.txt
 
 # Install additional dependencies that might be needed
-pip install matplotlib seaborn fastapi uvicorn
+pip install matplotlib seaborn fastapi uvicorn opencv-python
 
 echo "✅ Dependencies installed successfully!"
 
 # Verify installation
 echo "🔍 Verifying installations..."
-python3 -c "import numpy; print('numpy:', numpy.__version__)"
-python3 -c "import pandas; print('pandas:', pandas.__version__)"
-python3 -c "import requests; print('requests: OK')"
-python3 -c "import PIL; print('PIL: OK')"
+python -c "import numpy; print('numpy:', numpy.__version__)"
+python -c "import pandas; print('pandas:', pandas.__version__)"
+python -c "import requests; print('requests: OK')"
+python -c "import PIL; print('PIL: OK')"
+python -c "import cv2; print('cv2:', cv2.__version__)"
 
 echo "🎯 Ready to run backtest!" 
