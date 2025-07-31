@@ -43,6 +43,12 @@ def main():
     
     # Print results
     print("✅ Full backtest completed!")
+    
+    if results is None:
+        print("❌ Backtest failed - no results returned")
+        print("   This usually means no data was loaded successfully")
+        return
+    
     print("📊 Results Summary:")
     print(f"   Total Days: {results.total_days}")
     print(f"   Total Decisions: {results.data_coverage.get('total_decisions', 0)}")
