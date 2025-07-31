@@ -20,7 +20,8 @@ ollama list
 
 # Run the full backtest
 echo "🎯 Running full backtest..."
-python3 run_backtest.py
+cd backend
+python3 ../run_backtest.py
 
 # Create results summary
 echo "📋 Creating results summary..."

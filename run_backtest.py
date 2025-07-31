@@ -17,7 +17,7 @@ def create_full_backtest_config():
         start_date="2000-01-01",  # Start from earliest available data
         end_date="2025-01-01",    # End at current date
         tickers=["aa", "aaau", "aacg"],  # All available tickers
-        initial_capital=100000,
+        initial_capital=1000000,
         position_sizing=0.15,
         max_positions=5,
         cash_reserve=0.2,
