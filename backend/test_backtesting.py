@@ -47,19 +47,19 @@ def test_backtesting_system():
             import logging
             logging.basicConfig(level=logging.WARNING)
         
-        # Test 1: 10-Day Backtest for Performance Logging Validation
-        print("📊 Test 1: 10-Day Backtest")
-        print("   This test will run a 10-day backtest to verify performance logging system")
+        # Test 1: Full Dataset Backtest for Performance Logging Validation
+        print("📊 Test 1: Full Dataset Backtest")
+        print("   This test will run a full backtest on all available data (2000-2025)")
         print()
         
-        # Create a 10-day test configuration
-        config_10_days = BacktesterConfig(
-            start_date="2024-01-01",
-            end_date="2024-01-10",  # 10 days for Phase 2 testing
-            tickers=["aa", "aaau"],
-            initial_capital=100000,
+        # Create a full dataset test configuration
+        config_full_dataset = BacktesterConfig(
+            start_date="2000-01-01",  # Start from earliest available data
+            end_date="2025-01-01",    # End at current date
+            tickers=["aa", "aaau", "aacg"],  # All available tickers
+            initial_capital=1000000,  # $1M for full backtest
             position_sizing=0.15,
-            max_positions=3,
+            max_positions=5,
             cash_reserve=0.2,
             min_cash_reserve=0.1,
             transaction_cost=0.001,
@@ -67,26 +67,26 @@ def test_backtesting_system():
             log_level="WARNING"  # Use WARNING to reduce noise
         )
         
-        print("🚀 Running 10-day backtest...")
+        print("🚀 Running full dataset backtest...")
         
         try:
-            results_10_days = run_backtest(config_10_days)
+            results_full_dataset = run_backtest(config_full_dataset)
             
-            print("✅ 10-day backtest completed!")
-            print(f"   Total Trading Days: {results_10_days.total_days}")
-            print(f"   Total Decisions: {results_10_days.data_coverage.get('total_decisions', 0)}")
-            print(f"   Total Trades: {len(results_10_days.trade_log)}")
+            print("✅ Full dataset backtest completed!")
+            print(f"   Total Trading Days: {results_full_dataset.total_days}")
+            print(f"   Total Decisions: {results_full_dataset.data_coverage.get('total_decisions', 0)}")
+            print(f"   Total Trades: {len(results_full_dataset.trade_log)}")
             
             # Show trade breakdown
-            buy_trades = [t for t in results_10_days.trade_log if t.action == TradeAction.BUY]
-            sell_trades = [t for t in results_10_days.trade_log if t.action == TradeAction.SELL]
+            buy_trades = [t for t in results_full_dataset.trade_log if t.action == TradeAction.BUY]
+            sell_trades = [t for t in results_full_dataset.trade_log if t.action == TradeAction.SELL]
             print(f"   BUY Trades: {len(buy_trades)}")
             print(f"   SELL Trades: {len(sell_trades)}")
             
             # Show portfolio performance
-            if results_10_days.portfolio_history:
-                initial_value = results_10_days.portfolio_history[0].total_value
-                final_value = results_10_days.portfolio_history[-1].total_value
+            if results_full_dataset.portfolio_history:
+                initial_value = results_full_dataset.portfolio_history[0].total_value
+                final_value = results_full_dataset.portfolio_history[-1].total_value
                 change = final_value - initial_value
                 change_pct = (change / initial_value) * 100
                 
@@ -96,7 +96,7 @@ def test_backtesting_system():
                 print(f"     Change: ${change:,.2f} ({change_pct:+.2f}%)")
             
             # Show key metrics
-            portfolio_metrics = results_10_days.portfolio_metrics
+            portfolio_metrics = results_full_dataset.portfolio_metrics
             print(f"   Key Metrics:")
             print(f"     Total Return: {portfolio_metrics.total_return:.2%}")
             print(f"     Annualized Return: {portfolio_metrics.annualized_return:.2%}")
@@ -118,7 +118,7 @@ def test_backtesting_system():
             
             # Show ticker performance summary
             print(f"   Ticker Performance:")
-            for ticker, ticker_metrics in results_10_days.ticker_metrics.items():
+            for ticker, ticker_metrics in results_full_dataset.ticker_metrics.items():
                 print(f"     {ticker}: {ticker_metrics.total_return:.2%} return, {ticker_metrics.num_trades} trades")
             
             # Check for performance logging files
@@ -172,7 +172,7 @@ def test_backtesting_system():
             traceback.print_exc()
         
         print()
-        print("🎉 10-day backtest completed!")
+        print("🎉 Full dataset backtest completed!")
         
     except Exception as e:
         print(f"❌ Test failed with error: {e}")

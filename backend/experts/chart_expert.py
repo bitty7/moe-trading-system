@@ -188,17 +188,17 @@ class ChartExpert:
         # Create chart summary
         chart_summary = self._create_chart_summary(chart_data)
         
-        prompt = f"""You are a financial analyst. Based on the chart data below, provide ONLY a probability array for trading {ticker}.
-
-Date: {target_date}
+        prompt = f"""You are analyzing historical chart patterns for {ticker} on {target_date}.
 
 Chart Information:
 {chart_summary}
 
+Based on the chart data availability and patterns, provide a probability distribution for market sentiment.
+
 Respond with EXACTLY this format: [p_buy, p_hold, p_sell]
-- p_buy: probability of BUY recommendation
-- p_hold: probability of HOLD recommendation  
-- p_sell: probability of SELL recommendation
+- p_buy: probability of positive sentiment
+- p_hold: probability of neutral sentiment  
+- p_sell: probability of negative sentiment
 
 Rules:
 - All three numbers must sum to 1.0

@@ -88,17 +88,23 @@ class FundamentalDataLoader:
             # Balance Sheet
             balance_sheet_path = ticker_path / "condensed_consolidated_balance_sheets.json"
             if balance_sheet_path.exists():
-                statements['balance_sheet'] = self._load_statement_file(balance_sheet_path, start_date, end_date)
+                balance_sheet = self._load_statement_file(balance_sheet_path, start_date, end_date)
+                if balance_sheet is not None:
+                    statements['balance_sheet'] = balance_sheet
             
             # Cash Flow Statement
             cash_flow_path = ticker_path / "condensed_consolidated_statement_of_cash_flows.json"
             if cash_flow_path.exists():
-                statements['cash_flow'] = self._load_statement_file(cash_flow_path, start_date, end_date)
+                cash_flow = self._load_statement_file(cash_flow_path, start_date, end_date)
+                if cash_flow is not None:
+                    statements['cash_flow'] = cash_flow
             
             # Equity Statement
             equity_path = ticker_path / "condensed_consolidated_statement_of_equity.json"
             if equity_path.exists():
-                statements['equity'] = self._load_statement_file(equity_path, start_date, end_date)
+                equity = self._load_statement_file(equity_path, start_date, end_date)
+                if equity is not None:
+                    statements['equity'] = equity
             
             if not statements:
                 logger.warning(f"No fundamental data files found for {ticker}")
