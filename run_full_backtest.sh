@@ -15,10 +15,11 @@ echo "🔍 Verifying GPU availability..."
 nvidia-smi
 ollama list
 
-# Run the full backtest
+# Activate virtual environment and run the full backtest
 echo "🎯 Running full backtest..."
+source venv/bin/activate
 cd backend
-python3 ../run_backtest.py
+python ../run_backtest.py
 
 # Create results summary
 echo "📋 Creating results summary..."

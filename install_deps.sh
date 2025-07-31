@@ -5,12 +5,22 @@ set -e
 
 echo "🐍 Installing missing Python dependencies..."
 
+# Create virtual environment if it doesn't exist
+if [ ! -d "venv" ]; then
+    echo "📦 Creating virtual environment..."
+    python3 -m venv venv
+fi
+
+# Activate virtual environment
+echo "🔧 Activating virtual environment..."
+source venv/bin/activate
+
 # Install dependencies from requirements.txt
 cd backend
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 # Install additional dependencies that might be needed
-pip3 install matplotlib seaborn fastapi uvicorn
+pip install matplotlib seaborn fastapi uvicorn
 
 echo "✅ Dependencies installed successfully!"
 
