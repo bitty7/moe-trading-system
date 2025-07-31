@@ -6,6 +6,13 @@ set -e
 
 echo "📦 Setting up dataset on EC2..."
 
+# Install unzip if not available
+if ! command -v unzip &> /dev/null; then
+    echo "📦 Installing unzip..."
+    sudo apt-get update
+    sudo apt-get install -y unzip
+fi
+
 # Check if we're in the right directory
 if [ ! -f "dataset/HS500-samples.zip" ]; then
     echo "❌ HS500-samples.zip not found in dataset/ directory"
