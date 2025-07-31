@@ -20,6 +20,6 @@ fi
 # Set correct permissions
 chmod 400 "$KEY_FILE"
 
-# Connect to EC2
+# Connect to EC2 with automatic host key acceptance
 echo "🚀 Connecting to ubuntu@$EC2_IP..."
-ssh -i "$KEY_FILE" ubuntu@"$EC2_IP" 
+ssh -i "$KEY_FILE" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@"$EC2_IP" 
