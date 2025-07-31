@@ -1,0 +1,17 @@
+we need mechanism to handle iterating over all data
+
+shoudld we load all data at once and do all the preprocessing (e.g. date format allignment) then use that as input to the system?
+
+from where we should start coding? should we implement expert by expert and modify other related files as needed? or what you think?
+
+do we need caching in this system? it is only a backtesting system and will not be in production environment
+
+(done) we need to define a loop where the program will feed the all the experts the data for one day and make a decision either to but, sell, or hold. the days should be with in ranges we define?
+
+(done) in some tickers, we do not have data for specific dates, so there will be no data in some days, have we considered that in the system? 
+
+yes we solved the confidence being fix number so now it is dynamic. but i observed that the sell probability is also constant at 10% for all experts which is suspecious as well
+
+lets make sure we store and log the results of one test so that we can present it eventually in the frontend without running the whole simulation because it takes too long. then in the frontend we want to be able to present the data from a specific run that we choose. so we can run it for lets say 4 times and we can present one of them in the frontend, but we can also present the others by just selecting them or somethig like this
+
+are there any data types in evauation/ folder that are not in the data types file in the core/ folder
