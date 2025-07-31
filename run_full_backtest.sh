@@ -60,27 +60,27 @@ EOF
 
 # Run the full backtest
 echo "🎯 Running full backtest..."
-python3 -c "
+python3 -c '
 import sys
-sys.path.append('.')
+sys.path.append(".")
 from full_backtest_config import create_full_backtest_config
 from evaluation.backtester import run_backtest
 
-print('🚀 Starting full backtest...')
+print("🚀 Starting full backtest...")
 config = create_full_backtest_config()
 results = run_backtest(config)
 
-print('✅ Full backtest completed!')
-print(f'📊 Results Summary:')
-print(f'   Total Days: {results.total_days}')
-print(f'   Total Decisions: {results.data_coverage.get(\"total_decisions\", 0)}')
-print(f'   Total Trades: {len(results.trade_log)}')
-print(f'   Final Portfolio Value: ${results.portfolio_history[-1].total_value:,.2f}')
-print(f'   Total Return: {results.portfolio_metrics.total_return:.2%}')
-print(f'   Annualized Return: {results.portfolio_metrics.annualized_return:.2%}')
-print(f'   Sharpe Ratio: {results.portfolio_metrics.sharpe_ratio:.3f}')
-print(f'   Max Drawdown: {results.portfolio_metrics.max_drawdown:.2%}')
-"
+print("✅ Full backtest completed!")
+print("📊 Results Summary:")
+print(f"   Total Days: {results.total_days}")
+print(f"   Total Decisions: {results.data_coverage.get(\"total_decisions\", 0)}")
+print(f"   Total Trades: {len(results.trade_log)}")
+print(f"   Final Portfolio Value: ${results.portfolio_history[-1].total_value:,.2f}")
+print(f"   Total Return: {results.portfolio_metrics.total_return:.2%}")
+print(f"   Annualized Return: {results.portfolio_metrics.annualized_return:.2%}")
+print(f"   Sharpe Ratio: {results.portfolio_metrics.sharpe_ratio:.3f}")
+print(f"   Max Drawdown: {results.portfolio_metrics.max_drawdown:.2%}")
+'
 
 # Create results summary
 echo "📋 Creating results summary..."
