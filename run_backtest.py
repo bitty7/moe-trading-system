@@ -6,7 +6,10 @@ Runs the complete backtest on all available data
 
 import sys
 import os
-sys.path.append('.')
+
+# Change to the parent directory (where dataset is located)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append('backend')
 
 from core.data_types import BacktesterConfig
 from evaluation.backtester import run_backtest
