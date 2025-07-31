@@ -31,7 +31,12 @@ fi
 # Unzip the dataset
 echo "📂 Unzipping HS500-samples.zip..."
 cd dataset
-unzip -q HS500-samples.zip
+
+# Create HS500-samples directory if it doesn't exist
+mkdir -p HS500-samples
+
+# Unzip into the HS500-samples directory
+unzip -q HS500-samples.zip -d HS500-samples/
 
 # Verify the dataset structure
 echo "✅ Dataset extracted successfully!"
