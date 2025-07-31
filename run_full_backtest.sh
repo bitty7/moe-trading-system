@@ -6,9 +6,6 @@ set -e  # Exit on any error
 
 echo "🚀 Starting Full Backtest on EC2 with GPU..."
 
-# Navigate to backend directory
-cd backend
-
 # Set environment variables for GPU acceleration
 export OLLAMA_HOST=0.0.0.0:11434
 export CUDA_VISIBLE_DEVICES=0
@@ -33,7 +30,7 @@ cat > results_summary.txt << 'EOF'
 - Start Date: 2000-01-01
 - End Date: 2025-01-01
 - Tickers: aa, aaau, aacg
-- Initial Capital: $100,000
+- Initial Capital: $1,000,000
 
 ## Performance Metrics
 - Total Trading Days: [TO BE FILLED]
@@ -54,7 +51,7 @@ cat > results_summary.txt << 'EOF'
   - results.json: Final results summary
 
 ## GPU Performance
-- Model: llama3.1:8b
+- Model: llama3.2:latest
 - GPU: [TO BE FILLED]
 - Processing Rate: [TO BE FILLED] days/second
 EOF
