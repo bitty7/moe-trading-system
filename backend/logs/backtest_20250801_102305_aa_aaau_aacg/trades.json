@@ -1,0 +1,574 @@
+[
+  {
+    "trade_id": "trade_001",
+    "date": "2019-04-04",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 8445,
+    "price": 12.90999984741211,
+    "value": 109024.94871139526,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 109024.95021139526,
+    "overall_confidence": 0.4537121618355146,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Technical (weight: 0.31, confidence: 0.51) |   2. Fundamental (weight: 0.31, confidence: 0.59) |   3. Chart (weight: 0.22, confidence: 0.43) | Probabilities: Buy 35.0%, Hold 59.0%, Sell 6.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1000000,
+      "cash": 1000000,
+      "positions_value": 0
+    },
+    "portfolio_after": {
+      "total_value": 999836.462576933,
+      "cash": 890811.5138655377,
+      "positions_value": 109024.94871139526
+    }
+  },
+  {
+    "trade_id": "trade_002",
+    "date": "2019-06-12",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 8239,
+    "price": 13.31999969482422,
+    "value": 109743.47748565675,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 109743.47898565675,
+    "overall_confidence": 0.4594270635095803,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.35, confidence: 0.63) |   2. Technical (weight: 0.26, confidence: 0.46) |   3. Chart (weight: 0.23, confidence: 0.45) | Probabilities: Buy 0.0%, Hold 15.0%, Sell 85.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1002707.7638655377,
+      "cash": 890811.5138655377,
+      "positions_value": 111896.25
+    },
+    "portfolio_after": {
+      "total_value": 1003134.2960720998,
+      "cash": 1000390.376134966,
+      "positions_value": 2743.919937133789
+    }
+  },
+  {
+    "trade_id": "trade_003",
+    "date": "2019-12-06",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 206,
+    "price": 14.56999969482422,
+    "value": 3001.4199371337895,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 3001.42143713379,
+    "overall_confidence": 0.5350603526888754,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.40, confidence: 0.74) |   2. Technical (weight: 0.23, confidence: 0.48) |   3. Chart (weight: 0.23, confidence: 0.49) | Probabilities: Buy 0.0%, Hold 1.0%, Sell 99.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1003424.7560406667,
+      "cash": 1000390.376134966,
+      "positions_value": 3034.3799057006836
+    },
+    "portfolio_after": {
+      "total_value": 1003387.2939421941,
+      "cash": 1003387.2939421941,
+      "positions_value": 0.0
+    }
+  },
+  {
+    "trade_id": "trade_004",
+    "date": "2020-07-07",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6208,
+    "price": 17.93000030517578,
+    "value": 111309.44189453125,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 111309.44339453125,
+    "overall_confidence": 0.4792363287651288,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Technical (weight: 0.26, confidence: 0.48) |   3. Chart (weight: 0.22, confidence: 0.44) | Probabilities: Buy 85.0%, Hold 11.0%, Sell 4.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1003387.2939421941,
+      "cash": 1003387.2939421941,
+      "positions_value": 0.0
+    },
+    "portfolio_after": {
+      "total_value": 1003220.3297793523,
+      "cash": 891910.887884821,
+      "positions_value": 111309.44189453125
+    }
+  },
+  {
+    "trade_id": "trade_005",
+    "date": "2020-08-13",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 5817,
+    "price": 19.46999931335449,
+    "value": 113256.98600578307,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 113256.98750578306,
+    "overall_confidence": 0.4952715785985261,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.65) |   2. Technical (weight: 0.28, confidence: 0.53) |   3. Chart (weight: 0.22, confidence: 0.45) | Probabilities: Buy 85.0%, Hold 12.0%, Sell 3.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1010049.1321475164,
+      "cash": 891910.887884821,
+      "positions_value": 118138.24426269531
+    },
+    "portfolio_after": {
+      "total_value": 1007319.7746569415,
+      "cash": 778484.0164000293,
+      "positions_value": 228835.75825691223
+    }
+  },
+  {
+    "trade_id": "trade_006",
+    "date": "2020-12-24",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 6210,
+    "price": 18.709999084472656,
+    "value": 116189.0943145752,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 116189.0958145752,
+    "overall_confidence": 0.5451894041707337,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.42, confidence: 0.77) |   2. Technical (weight: 0.24, confidence: 0.49) |   3. Chart (weight: 0.20, confidence: 0.45) | Probabilities: Buy 0.0%, Hold 0.0%, Sell 100.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1002630.0090605518,
+      "cash": 778484.0164000293,
+      "positions_value": 224145.99266052246
+    },
+    "portfolio_after": {
+      "total_value": 1003297.4717493411,
+      "cash": 894498.8270731326,
+      "positions_value": 108798.6446762085
+    }
+  },
+  {
+    "trade_id": "trade_007",
+    "date": "2021-03-31",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6504,
+    "price": 16.989999771118164,
+    "value": 110502.95851135254,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 110502.96001135254,
+    "overall_confidence": 0.48541733460694325,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.65) |   2. Chart (weight: 0.25, confidence: 0.49) |   3. Technical (weight: 0.24, confidence: 0.46) | Probabilities: Buy 82.0%, Hold 17.0%, Sell 1.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 991900.0770731326,
+      "cash": 894498.8270731326,
+      "positions_value": 97401.25
+    },
+    "portfolio_after": {
+      "total_value": 990173.3641240131,
+      "cash": 783830.1141240131,
+      "positions_value": 206343.25
+    }
+  },
+  {
+    "trade_id": "trade_008",
+    "date": "2021-05-19",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6055,
+    "price": 18.61000061035156,
+    "value": 112683.5536956787,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 112683.5551956787,
+    "overall_confidence": 0.4832338104542628,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.65) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.23, confidence: 0.46) | Probabilities: Buy 85.0%, Hold 9.0%, Sell 6.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1013086.711642934,
+      "cash": 783830.1141240131,
+      "positions_value": 229256.5975189209
+    },
+    "portfolio_after": {
+      "total_value": 1012917.6863123905,
+      "cash": 670977.5350977909,
+      "positions_value": 341940.1512145996
+    }
+  },
+  {
+    "trade_id": "trade_009",
+    "date": "2021-11-15",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6020,
+    "price": 18.530000686645508,
+    "value": 111550.60413360596,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 111550.60563360596,
+    "overall_confidence": 0.4697444437770208,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.63) |   2. Technical (weight: 0.26, confidence: 0.48) |   3. Chart (weight: 0.23, confidence: 0.45) | Probabilities: Buy 80.0%, Hold 15.0%, Sell 5.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1011998.9652850162,
+      "cash": 670977.5350977909,
+      "positions_value": 341021.43018722534
+    },
+    "portfolio_after": {
+      "total_value": 1012012.232030183,
+      "cash": 559259.6050579845,
+      "positions_value": 452752.6269721985
+    }
+  },
+  {
+    "trade_id": "trade_010",
+    "date": "2022-01-10",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6173,
+    "price": 17.90999984741211,
+    "value": 110558.42905807495,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 110558.43055807495,
+    "overall_confidence": 0.4818459110976232,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.21, confidence: 0.43) | Probabilities: Buy 85.0%, Hold 12.0%, Sell 3.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 994936.4599469005,
+      "cash": 559259.6050579845,
+      "positions_value": 435676.854888916
+    },
+    "portfolio_after": {
+      "total_value": 994461.9770129386,
+      "cash": 448535.3383563224,
+      "positions_value": 545926.6386566162
+    }
+  },
+  {
+    "trade_id": "trade_011",
+    "date": "2022-02-15",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6134,
+    "price": 18.40999984741211,
+    "value": 112926.93906402588,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 112926.94056402588,
+    "overall_confidence": 0.48049917341055093,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.64) |   2. Technical (weight: 0.28, confidence: 0.50) |   3. Chart (weight: 0.21, confidence: 0.44) | Probabilities: Buy 80.0%, Hold 19.0%, Sell 1.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1017081.5500167075,
+      "cash": 448535.3383563224,
+      "positions_value": 568546.2116603851
+    },
+    "portfolio_after": {
+      "total_value": 1018077.6228840209,
+      "cash": 335439.0088837005,
+      "positions_value": 682638.6140003204
+    }
+  },
+  {
+    "trade_id": "trade_012",
+    "date": "2022-05-18",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6161,
+    "price": 18.040000915527344,
+    "value": 111144.44564056396,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 111144.44714056396,
+    "overall_confidence": 0.4857241303642726,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.65) |   2. Technical (weight: 0.26, confidence: 0.49) |   3. Chart (weight: 0.23, confidence: 0.47) | Probabilities: Buy 85.0%, Hold 10.0%, Sell 5.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 997525.0824844695,
+      "cash": 335439.0088837005,
+      "positions_value": 662086.073600769
+    },
+    "portfolio_after": {
+      "total_value": 997358.3658160086,
+      "cash": 224127.84657467567,
+      "positions_value": 773230.519241333
+    }
+  },
+  {
+    "trade_id": "trade_013",
+    "date": "2022-07-15",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6236,
+    "price": 16.940000534057617,
+    "value": 105637.8433303833,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 105637.8448303833,
+    "overall_confidence": 0.4803972769148873,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Technical (weight: 0.27, confidence: 0.50) |   3. Chart (weight: 0.21, confidence: 0.43) | Probabilities: Buy 85.0%, Hold 10.0%, Sell 5.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 951495.9571436759,
+      "cash": 224127.84657467567,
+      "positions_value": 727368.1105690002
+    },
+    "portfolio_after": {
+      "total_value": 951524.5727663756,
+      "cash": 118331.5464792968,
+      "positions_value": 833193.0262870789
+    }
+  },
+  {
+    "trade_id": "trade_014",
+    "date": "2022-08-02",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 6311,
+    "price": 17.530000686645508,
+    "value": 110631.8343334198,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 110631.8358334198,
+    "overall_confidence": 0.5031689597317953,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.39, confidence: 0.69) |   2. Technical (weight: 0.25, confidence: 0.48) |   3. Chart (weight: 0.22, confidence: 0.45) | Probabilities: Buy 0.0%, Hold 10.0%, Sell 90.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 981474.3827334166,
+      "cash": 118331.5464792968,
+      "positions_value": 863142.8362541199
+    },
+    "portfolio_after": {
+      "total_value": 978853.5724407178,
+      "cash": 228797.4330612165,
+      "positions_value": 750056.1393795013
+    }
+  },
+  {
+    "trade_id": "trade_015",
+    "date": "2022-08-15",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6248,
+    "price": 17.65999984741211,
+    "value": 110339.67904663086,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 110339.68054663086,
+    "overall_confidence": 0.47976887688127356,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Technical (weight: 0.24, confidence: 0.46) |   3. Chart (weight: 0.23, confidence: 0.46) | Probabilities: Buy 85.0%, Hold 12.0%, Sell 3.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 994256.8369461042,
+      "cash": 228797.4330612165,
+      "positions_value": 765459.4038848877
+    },
+    "portfolio_after": {
+      "total_value": 995528.3645674268,
+      "cash": 118292.24449601569,
+      "positions_value": 877236.1200714111
+    }
+  },
+  {
+    "trade_id": "trade_016",
+    "date": "2022-09-08",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 1346,
+    "price": 16.950000762939453,
+    "value": 22814.701026916504,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 22814.702526916502,
+    "overall_confidence": 0.47955384815318614,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Technical (weight: 0.26, confidence: 0.48) |   3. Chart (weight: 0.22, confidence: 0.45) | Probabilities: Buy 85.0%, Hold 10.0%, Sell 5.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 954338.9570852796,
+      "cash": 118292.24449601569,
+      "positions_value": 836046.7125892639
+    },
+    "portfolio_after": {
+      "total_value": 954439.3329799062,
+      "cash": 95443.32141755881,
+      "positions_value": 858996.0115623474
+    }
+  },
+  {
+    "trade_id": "trade_017",
+    "date": "2023-06-20",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 6474,
+    "price": 19.190000534057617,
+    "value": 124236.06345748901,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 124236.06495748901,
+    "overall_confidence": 0.5448425646977645,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.42, confidence: 0.77) |   2. Technical (weight: 0.24, confidence: 0.49) |   3. Chart (weight: 0.20, confidence: 0.45) | Probabilities: Buy 0.0%, Hold 0.0%, Sell 100.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1072330.8806674369,
+      "cash": 95443.32141755881,
+      "positions_value": 976887.559249878
+    },
+    "portfolio_after": {
+      "total_value": 1062068.3842287294,
+      "cash": 219493.03077986158,
+      "positions_value": 842575.3534488678
+    }
+  },
+  {
+    "trade_id": "trade_018",
+    "date": "2023-09-13",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6037,
+    "price": 18.90999984741211,
+    "value": 114159.6690788269,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 114159.6705788269,
+    "overall_confidence": 0.49026726540547294,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.38, confidence: 0.67) |   2. Chart (weight: 0.24, confidence: 0.47) |   3. Technical (weight: 0.24, confidence: 0.46) | Probabilities: Buy 85.0%, Hold 15.0%, Sell 0.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1051530.7142782442,
+      "cash": 219493.03077986158,
+      "positions_value": 832037.6834983826
+    },
+    "portfolio_after": {
+      "total_value": 1051600.9603016644,
+      "cash": 105162.12219741644,
+      "positions_value": 946438.838104248
+    }
+  },
+  {
+    "trade_id": "trade_019",
+    "date": "2023-11-06",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 6328,
+    "price": 19.600000381469727,
+    "value": 124028.80241394043,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 124028.80391394043,
+    "overall_confidence": 0.5158357941102839,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.69) |   2. Technical (weight: 0.28, confidence: 0.54) |   3. Chart (weight: 0.21, confidence: 0.44) | Probabilities: Buy 0.0%, Hold 10.0%, Sell 90.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1091056.670766142,
+      "cash": 105162.12219741644,
+      "positions_value": 985894.5485687256
+    },
+    "portfolio_after": {
+      "total_value": 1083878.4980459195,
+      "cash": 229004.88140773596,
+      "positions_value": 854873.6166381835
+    }
+  },
+  {
+    "trade_id": "trade_020",
+    "date": "2023-11-29",
+    "ticker": "aaau",
+    "action": "SELL",
+    "quantity": 6371,
+    "price": 20.26000022888184,
+    "value": 129076.4614582062,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 129076.4629582062,
+    "overall_confidence": 0.5493475401692964,
+    "expert_contributions": {},
+    "reasoning": "Decision: SELL | Top contributing experts: |   1. Fundamental (weight: 0.39, confidence: 0.75) |   2. Technical (weight: 0.25, confidence: 0.52) |   3. Chart (weight: 0.22, confidence: 0.48) | Probabilities: Buy 0.0%, Hold 1.0%, Sell 99.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1110920.3714590054,
+      "cash": 229004.88140773596,
+      "positions_value": 881915.4900512694
+    },
+    "portfolio_after": {
+      "total_value": 1112471.436698459,
+      "cash": 357887.7281737549,
+      "positions_value": 754583.7085247042
+    }
+  },
+  {
+    "trade_id": "trade_021",
+    "date": "2024-02-14",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6208,
+    "price": 19.700000762939453,
+    "value": 122297.60473632812,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 122297.60623632812,
+    "overall_confidence": 0.49230195415746536,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.65) |   2. Technical (weight: 0.27, confidence: 0.51) |   3. Chart (weight: 0.23, confidence: 0.46) | Probabilities: Buy 85.0%, Hold 12.0%, Sell 3.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1092731.561124347,
+      "cash": 357887.7281737549,
+      "positions_value": 734843.832950592
+    },
+    "portfolio_after": {
+      "total_value": 1092734.3471391173,
+      "cash": 235406.67703032226,
+      "positions_value": 857327.670108795
+    }
+  },
+  {
+    "trade_id": "trade_022",
+    "date": "2024-02-20",
+    "ticker": "aaau",
+    "action": "BUY",
+    "quantity": 6103,
+    "price": 20.049999237060547,
+    "value": 122365.14534378052,
+    "transaction_cost": 0.001,
+    "slippage": 0.0005,
+    "total_cost": 122365.14684378052,
+    "overall_confidence": 0.4820166902745872,
+    "expert_contributions": {},
+    "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.65) |   2. Chart (weight: 0.25, confidence: 0.47) |   3. Technical (weight: 0.24, confidence: 0.46) | Probabilities: Buy 85.0%, Hold 12.0%, Sell 3.0%",
+    "success": true,
+    "portfolio_before": {
+      "total_value": 1100990.440345523,
+      "cash": 235406.67703032226,
+      "positions_value": 865583.7633152007
+    },
+    "portfolio_after": {
+      "total_value": 1100013.5077493489,
+      "cash": 112857.98396852607,
+      "positions_value": 987155.5237808228
+    }
+  }
+]
