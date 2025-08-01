@@ -16,8 +16,8 @@ from evaluation.backtester import run_backtest
 def create_short_backtest_config():
     """Create configuration for short backtest."""
     return BacktesterConfig(
-        start_date="2024-01-01",  # Start from recent date
-        end_date="2024-01-15",    # 15 days of data
+        start_date="2020-01-01",  # Start from historical date with data
+        end_date="2020-01-15",    # 15 days of data
         tickers=["aa", "aaau", "aacg"],  # All available tickers
         initial_capital=100000,  # Smaller capital for testing
         position_sizing=0.15,

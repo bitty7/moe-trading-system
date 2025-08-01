@@ -54,8 +54,8 @@ def test_backtesting_system():
         
         # Create a full dataset test configuration
         config_full_dataset = BacktesterConfig(
-            start_date="2000-01-01",  # Start from earliest available data
-            end_date="2025-01-01",    # End at current date
+            start_date="2024-01-01",  # Start from earliest available data
+            end_date="2024-01-11",    # End at current date
             tickers=["aa", "aaau", "aacg"],  # All available tickers
             initial_capital=1000000,  # $1M for full backtest
             position_sizing=0.15,

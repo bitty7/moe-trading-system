@@ -15,3 +15,9 @@ yes we solved the confidence being fix number so now it is dynamic. but i observ
 lets make sure we store and log the results of one test so that we can present it eventually in the frontend without running the whole simulation because it takes too long. then in the frontend we want to be able to present the data from a specific run that we choose. so we can run it for lets say 4 times and we can present one of them in the frontend, but we can also present the others by just selecting them or somethig like this
 
 are there any data types in evauation/ folder that are not in the data types file in the core/ folder
+
+kill -9 $(lsof -ti:3001)
+
+remove Recommendation Distribution and create another chart below the Aggregated Expert Decisions that shows the weight overtime, confidence level over time.
+
+explain the colors of the pie charts in the Expert Performance page. what is green, what is yello/orange, what is red
