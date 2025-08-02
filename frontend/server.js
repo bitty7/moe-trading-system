@@ -18,6 +18,23 @@ app.get('/api/runs', async (req, res) => {
     const logsPath = path.join(__dirname, '..', 'backend', 'logs');
     const directories = await fs.readdir(logsPath);
     
+    // Safe JSON parser that handles various edge cases
+    const safeJSONParse = (jsonString) => {
+      try {
+        // Handle various invalid JSON values that might occur in financial data
+        const sanitized = jsonString
+          .replace(/:\s*Infinity/g, ': 0')
+          .replace(/:\s*-Infinity/g, ': 0')
+          .replace(/:\s*NaN/g, ': 0')
+          .replace(/:\s*null/g, ': 0')
+          .replace(/:\s*undefined/g, ': 0');
+        return JSON.parse(sanitized);
+      } catch (error) {
+        console.error('JSON parsing error:', error);
+        return null;
+      }
+    };
+
     const runs = [];
     
     for (const dir of directories) {
@@ -25,40 +42,44 @@ app.get('/api/runs', async (req, res) => {
         const configPath = path.join(logsPath, dir, 'config.json');
         try {
           const configData = await fs.readFile(configPath, 'utf8');
-          const config = JSON.parse(configData);
+          const config = safeJSONParse(configData);
           
           // Try to read results.json to get final metrics
           let finalValue, totalReturn, sharpeRatio, maxDrawdown, totalTrades;
           try {
             const resultsPath = path.join(logsPath, dir, 'results.json');
             const resultsData = await fs.readFile(resultsPath, 'utf8');
-            const results = JSON.parse(resultsData);
-            finalValue = results.portfolio_metrics.final_value;
-            totalReturn = results.portfolio_metrics.total_return;
-            sharpeRatio = results.portfolio_metrics.sharpe_ratio;
-            maxDrawdown = results.portfolio_metrics.max_drawdown;
-            totalTrades = results.portfolio_metrics.total_trades;
+            const results = safeJSONParse(resultsData);
+            if (results && results.portfolio_metrics) {
+              finalValue = results.portfolio_metrics.final_value;
+              totalReturn = results.portfolio_metrics.total_return;
+              sharpeRatio = results.portfolio_metrics.sharpe_ratio;
+              maxDrawdown = results.portfolio_metrics.max_drawdown;
+              totalTrades = results.portfolio_metrics.total_trades;
+            }
           } catch (error) {
             // results.json might not exist yet - this is normal for running backtests
             // Silently ignore file not found errors
           }
           
-          runs.push({
-            id: config.backtest_id,
-            start_date: config.start_date,
-            end_date: config.end_date,
-            date_range: `${config.start_date} to ${config.end_date}`,
-            tickers: config.tickers.join(', '),
-            initial_capital: config.initial_capital,
-            created_at: config.created_at,
-            status: config.status,
-            total_trading_days: config.total_trading_days,
-            final_value: finalValue,
-            total_return: totalReturn,
-            sharpe_ratio: sharpeRatio,
-            max_drawdown: maxDrawdown,
-            total_trades: totalTrades
-          });
+          if (config) {
+            runs.push({
+              id: config.backtest_id,
+              start_date: config.start_date,
+              end_date: config.end_date,
+              date_range: `${config.start_date} to ${config.end_date}`,
+              tickers: config.tickers ? config.tickers.join(', ') : '',
+              initial_capital: config.initial_capital,
+              created_at: config.created_at,
+              status: config.status,
+              total_trading_days: config.total_trading_days,
+              final_value: finalValue,
+              total_return: totalReturn,
+              sharpe_ratio: sharpeRatio,
+              max_drawdown: maxDrawdown,
+              total_trades: totalTrades
+            });
+          }
         } catch (error) {
           console.error(`Error reading config for ${dir}:`, error);
         }
@@ -112,13 +133,41 @@ app.get('/api/runs/*', async (req, res) => {
       console.log(`Run ${runId} - Available files: ${availableFiles.join(', ')}`);
     }
     
-    const backtestData = {
-      config: configData.status === 'fulfilled' ? JSON.parse(configData.value) : null,
-      portfolio_daily: portfolioData.status === 'fulfilled' ? JSON.parse(portfolioData.value) : [],
-      tickers_daily: tickersData.status === 'fulfilled' ? JSON.parse(tickersData.value) : {},
-      trades: tradesData.status === 'fulfilled' ? JSON.parse(tradesData.value) : [],
-      results: resultsData.status === 'fulfilled' ? JSON.parse(resultsData.value) : null
+    // Safe JSON parser that handles various edge cases
+    const safeJSONParse = (jsonString) => {
+      try {
+        // Handle various invalid JSON values that might occur in financial data
+        const sanitized = jsonString
+          .replace(/:\s*Infinity/g, ': 0')
+          .replace(/:\s*-Infinity/g, ': 0')
+          .replace(/:\s*NaN/g, ': 0')
+          .replace(/:\s*null/g, ': 0')
+          .replace(/:\s*undefined/g, ': 0');
+        return JSON.parse(sanitized);
+      } catch (error) {
+        console.error('JSON parsing error:', error);
+        return null;
+      }
     };
+
+    const backtestData = {
+      config: configData.status === 'fulfilled' ? safeJSONParse(configData.value) : null,
+      portfolio_daily: portfolioData.status === 'fulfilled' ? safeJSONParse(portfolioData.value) : [],
+      tickers_daily: tickersData.status === 'fulfilled' ? safeJSONParse(tickersData.value) : {},
+      trades: tradesData.status === 'fulfilled' ? safeJSONParse(tradesData.value) : [],
+      results: resultsData.status === 'fulfilled' ? safeJSONParse(resultsData.value) : null
+    };
+
+    // Ensure all arrays and objects are properly initialized
+    if (!backtestData.portfolio_daily || !Array.isArray(backtestData.portfolio_daily)) {
+      backtestData.portfolio_daily = [];
+    }
+    if (!backtestData.tickers_daily || typeof backtestData.tickers_daily !== 'object') {
+      backtestData.tickers_daily = {};
+    }
+    if (!backtestData.trades || !Array.isArray(backtestData.trades)) {
+      backtestData.trades = [];
+    }
     
     res.json(backtestData);
   } catch (error) {
