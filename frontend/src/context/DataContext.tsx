@@ -206,7 +206,45 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
       
       // Load the specific run data from API
       const response = await axios.get(`${API_BASE_URL}/api/runs/${runId}`);
-      setBacktestData(response.data);
+      const rawData = response.data;
+      
+      // Filter data to only include records from 2019 onwards
+      const filterDataFrom2019 = (data: any) => {
+        if (!data) return data;
+        
+        // Filter portfolio_daily data
+        if (Array.isArray(data.portfolio_daily)) {
+          data.portfolio_daily = data.portfolio_daily.filter((day: any) => {
+            const date = new Date(day.date);
+            return date.getFullYear() >= 2019;
+          });
+        }
+        
+        // Filter tickers_daily data
+        if (data.tickers_daily && typeof data.tickers_daily === 'object') {
+          Object.keys(data.tickers_daily).forEach(ticker => {
+            if (Array.isArray(data.tickers_daily[ticker])) {
+              data.tickers_daily[ticker] = data.tickers_daily[ticker].filter((day: any) => {
+                const date = new Date(day.date);
+                return date.getFullYear() >= 2019;
+              });
+            }
+          });
+        }
+        
+        // Filter trades data
+        if (Array.isArray(data.trades)) {
+          data.trades = data.trades.filter((trade: any) => {
+            const date = new Date(trade.date);
+            return date.getFullYear() >= 2019;
+          });
+        }
+        
+        return data;
+      };
+      
+      const filteredData = filterDataFrom2019(rawData);
+      setBacktestData(filteredData);
     } catch (err) {
       console.error('Error loading run data:', err);
       setError('Failed to load run data');

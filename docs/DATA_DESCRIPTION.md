@@ -1,17 +1,33 @@
-# 🧾 Data Sources Description
+# 🧾 Dataset Description (HS500-samples)
 
-All raw data is located under:  
+All research data used in examples and tests is located at:
 `/dataset/HS500-samples/`
 
+This is a compact subset designed for fast local experimentation. It contains four modalities per ticker: News (JSONL), Chart Images (PNG), Time Series (CSV), and Fundamentals (JSON). The structure and schemas below are designed to be stable so both LLM and non-LLM expert implementations can consume the same inputs.
+
+Top-level layout:
+```
+dataset/
+└── HS500-samples/
+    ├── SP500_images/
+    │   └── <ticker>/
+    ├── SP500_news/
+    │   └── <TICKER>.jsonl
+    ├── SP500_tabular/
+    │   └── <ticker>/
+    └── SP500_time_series/
+        └── <ticker>.csv
+```
+
 ## 📄 News (JSONL)
-- Location: `/dataset/HS500-samples/SP500_news/AA.jsonl` (also AAAU, AACG)
+- Location: `/dataset/HS500-samples/SP500_news/AA.jsonl` (also `AAAU.jsonl`, `AACG.jsonl`)
 - Format:
   - One JSON object per line (JSONL format)
-  - Fields include:
-    - `Date`: Publication date of the news article (format may vary)
-    - `Article`: Full text of the news article
-    - `Article_title`: Title or headline of the article
-    - `Stock_symbol`: Ticker symbol associated with the article
+  - Fields include (canonicalized by loaders at read-time):
+    - `Date` (string): Publication date; loaders normalize to `YYYY-MM-DD`
+    - `Article` (string): Full text of the news article
+    - `Article_title` (string): Title or headline of the article
+    - `Stock_symbol` (string): Ticker symbol
 - Example (JSONL snippet):
   ```json
   {"Date": "2022-01-15", "Article": "Company AA reported record earnings...", "Article_title": "AA Reports Record Earnings", "Stock_symbol": "AA"}
@@ -25,15 +41,17 @@ All raw data is located under:
   - Data is loaded and preprocessed by dedicated loaders in `backend/data_loader/`, which handle parsing, date normalization, and text cleaning as needed.
   - Expert modules in `backend/experts/` can access the news data for tasks such as natural language processing, feature engineering, or as part of multi-modal models.
 - Notes:
+  - Date formats may vary across sources; use loader normalization.
+  - Multiple articles per day are possible; loaders can aggregate by day.
   - Coverage is sparse and publication dates may be irregular or in varying formats.
   - Each file is named after the ticker symbol it covers (e.g., `AA.jsonl` for ticker AA).
   - Articles may vary in length and relevance; preprocessing may include filtering or deduplication steps.
 
-## 🖼️ Chart Images
+## 🖼️ Chart Images (PNG)
 - Location: `/dataset/HS500-samples/SP500_images/<ticker>/`
 - Format:
   - Each subfolder is named after a stock ticker (e.g., `aa`, `aaau`, `aacg`).
-  - Files are named using the pattern: `<ticker>_<year>_<H1/H2>_candlestick.png`
+  - Files are named: `<ticker>_<year>_<H1|H2>_candlestick.png`
     - Example: `aa_2000_H1_candlestick.png` (first half of 2000 for ticker AA)
     - There are two images per year per ticker: one for H1 (first half) and one for H2 (second half).
 - Usage in Project:
@@ -53,7 +71,7 @@ All raw data is located under:
 - Location: `/dataset/HS500-samples/SP500_time_series/aa.csv` (also for aaau, aacg)
 - Format:
   - Each file is named after a stock ticker (e.g., `aa.csv`, `aaau.csv`, `aacg.csv`).
-  - CSV columns: `Date,Open,High,Low,Close,Volume,Dividends,Stock Splits`
+- CSV columns: `Date,Open,High,Low,Close,Volume,Dividends,Stock Splits`
   - Example (CSV snippet):
     ```csv
     Date,Open,High,Low,Close,Volume,Dividends,Stock Splits
@@ -106,5 +124,38 @@ All raw data is located under:
 - Notes:
   - The data is organized by ticker symbol, with each subfolder containing the three statement types for that company.
   - Statement formats and available fields may vary slightly between companies or over time, so loaders include logic for handling missing or extra fields.
+
+---
+
+## 🔗 Ticker naming and case
+- Folders under `SP500_images/` use lowercase tickers (e.g., `aa`, `aaau`, `aacg`).
+- Files under `SP500_news/` use uppercase tickers in filenames (e.g., `AA.jsonl`).
+- CSV files under `SP500_time_series/` use lowercase tickers in filenames (e.g., `aa.csv`).
+- Fundamentals under `SP500_tabular/` use lowercase subfolders per ticker.
+
+Loaders standardize tickers internally, so consumers should rely on loader outputs, not raw filenames.
+
+## 🧼 Data quality and normalization
+- Date normalization to `YYYY-MM-DD` across modalities
+- Handling of missing days (time series) and sparse coverage (news)
+- Basic text cleaning for news (optional)
+- Optional resampling and alignment for multi-modal fusion by day
+
+## 🧪 Minimal slice for quick tests
+For fast local tests, the repo includes three tickers: `aa`, `aaau`, `aacg`. This keeps runs quick while preserving modality variety (news, images, fundamentals, time series).
+
+## 📥 How to add more data
+1. Follow the same directory structure and naming conventions above
+2. Add new `<ticker>.csv` under `SP500_time_series/`
+3. Add `<TICKER>.jsonl` under `SP500_news/` (optional)
+4. Add `<ticker>/` fundamentals JSONs under `SP500_tabular/` (optional)
+5. Add image folder `<ticker>/` under `SP500_images/` with `*_candlestick.png` files (optional)
+6. Re-run loaders and backtests; metrics and logs will capture the new tickers automatically
+
+## ✅ Reproducibility checklist
+- Record start/end dates and tickers in config
+- Keep portfolio and transaction assumptions fixed across runs
+- Document model identifiers in `config.json` (see Performance Logging doc)
+- Store each run under a distinct `backend/logs/<run_id>/`
 
 Each expert module in `backend/experts/` loads its specific data modality using loaders in `backend/data_loader/`.

@@ -323,13 +323,36 @@ const ExpertPerformance: React.FC = () => {
           <ResponsiveContainer width="100%" height={400}>
             <LineChart data={expertConfidenceData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 1]} tick={{ fontSize: 12 }} />
+              <XAxis 
+                dataKey="date" 
+                tick={{ fontSize: 12 }}
+                interval="preserveStartEnd"
+                tickFormatter={(value) => {
+                  const date = new Date(value);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short' 
+                  });
+                }}
+              />
+              <YAxis 
+                domain={[0, 1]} 
+                tick={{ fontSize: 12 }}
+                tickFormatter={(value) => `${(value * 100).toFixed(0)}%`}
+              />
               <RechartsTooltip
                 formatter={(value: number, name: string) => [
                   `${(value * 100).toFixed(1)}%`,
                   experts.find(e => e.name === name)?.label || name
                 ]}
+                labelFormatter={(label) => {
+                  const date = new Date(label);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short',
+                    day: 'numeric'
+                  });
+                }}
               />
               {experts.map((expert) => (
                 <Line
@@ -340,6 +363,8 @@ const ExpertPerformance: React.FC = () => {
                   strokeWidth={2}
                   name={expert.label}
                   dot={false}
+                  fill="none"
+                  fillOpacity={0}
                 />
               ))}
             </LineChart>
@@ -357,13 +382,36 @@ const ExpertPerformance: React.FC = () => {
           <ResponsiveContainer width="100%" height={400}>
             <LineChart data={expertWeightData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 1]} tick={{ fontSize: 12 }} />
+              <XAxis 
+                dataKey="date" 
+                tick={{ fontSize: 12 }}
+                interval="preserveStartEnd"
+                tickFormatter={(value) => {
+                  const date = new Date(value);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short' 
+                  });
+                }}
+              />
+              <YAxis 
+                domain={[0, 1]} 
+                tick={{ fontSize: 12 }}
+                tickFormatter={(value) => `${(value * 100).toFixed(0)}%`}
+              />
               <RechartsTooltip
                 formatter={(value: number, name: string) => [
                   `${(value * 100).toFixed(1)}%`,
                   experts.find(e => e.name === name)?.label || name
                 ]}
+                labelFormatter={(label) => {
+                  const date = new Date(label);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short',
+                    day: 'numeric'
+                  });
+                }}
               />
               {experts.map((expert) => (
                 <Line
@@ -374,6 +422,8 @@ const ExpertPerformance: React.FC = () => {
                   strokeWidth={2}
                   name={expert.label}
                   dot={false}
+                  fill="none"
+                  fillOpacity={0}
                 />
               ))}
             </LineChart>

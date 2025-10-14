@@ -1,24 +1,24 @@
-# 🧠 System Overview
+# 🧠 System Overview (Research-Focused)
 
-This is a fully local **LLM-driven financial trading system** built using a **Mixture-of-Experts (MoE)** architecture. The system is designed to simulate real-world daily trading decisions by leveraging four **parallel LLM-based experts**, each specializing in a different financial data modality.
+This project is a minimal-yet-complete **Mixture-of-Experts (MoE)** backtesting system intended for comparative research. The current baseline uses **local LLM-based experts** (via Ollama). Later, we will introduce **pre-trained, non-LLM expert implementations** that follow the same interfaces to enable apples-to-apples comparisons.
 
 ---
 
 ## ⚙️ Daily Workflow (Backtesting Mode)
 
-> **Note:** This system is primarily intended for **backtesting** over historical data, not for live daily inference. Since the available data is historical and not updated daily, users should specify a fixed historical start date (e.g., `2008-01-01`) and run the system over the available data range for testing and evaluation purposes.
+> **Note:** This system is intended for **backtesting** over historical data, not live daily inference. Use a fixed historical start date (e.g., `2008-01-01`) and run across the available range for evaluation.
 
 Each day (in the backtest loop), for every stock ticker, the system:
 1. Loads the latest available data from multiple modalities (as of the current backtest date)
-2. Passes each modality to its corresponding **LLM-powered expert** using **Ollama**
+2. Passes each modality to its corresponding expert implementation (LLM baseline today; pre-trained variants later)
 3. Aggregates all expert outputs using a simple or learned weighting mechanism
 4. Produces a final trading decision: **Buy**, **Hold**, or **Sell**
 
 ---
 
-## 🧠 LLM-Based Expert Modules
+## 🧠 Expert Modules
 
-All experts use **local LLMs via Ollama**, which may later be replaced with remote APIs (e.g., DeepSeek, Groq, TogetherAI, etc.). For now, the system is designed to work **offline**, ensuring privacy and low latency.
+Baseline experts use **local LLMs via Ollama**. Future variants may use pre-trained, non-LLM models. Both must output the same schema for fair comparison. The system runs fully **offline** in the baseline.
 
 | Expert Name                  | Input Type                             | LLM Role |
 |-----------------------------|-----------------------------------------|----------|
@@ -27,14 +27,14 @@ All experts use **local LLMs via Ollama**, which may later be replaced with remo
 | **Technical Chart Expert**  | Candlestick chart images (`.png`)       | Analyze visual chart patterns (e.g., head & shoulders, breakouts) and summarize trends |
 | **Fundamental Expert**      | Financial statements (`.json`)          | Extract signals from earnings, balance sheets, cash flow, and equity statements |
 
-All experts generate a 3-class probability distribution:  
+All experts generate a 3-class probability distribution:
 `[p_buy, p_hold, p_sell]`
 
 ---
 
-## 🔁 Aggregation Strategy
+## 🔁 Aggregation Strategy (Simple)
 
-All experts are **always active**. The system uses a **simple weighted aggregation** (initially uniform), but may evolve to support:
+All experts are **always active**. The system uses a **simple weighted aggregation** (initially uniform). This keeps the pipeline minimal for research comparability. Potential future extensions:
 - Learned attention-based routing
 - Conditional weighting based on confidence scores
 - External macro-indicators (future enhancement)

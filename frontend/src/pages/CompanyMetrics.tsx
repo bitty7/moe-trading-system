@@ -242,13 +242,13 @@ const CompanyMetrics: React.FC = () => {
                 />
               </Box>
               <Typography color="textSecondary" gutterBottom variant="body2">
-                Total Return
+                Ticker Return
               </Typography>
               <Typography variant="h4" component="div" fontWeight="bold" color={getReturnColor(company.totalReturn) + '.main'}>
-                ${(company.contributionToPortfolio * 1000000).toLocaleString()}
+                {(company.totalReturn * 100).toFixed(2)}%
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Portfolio Contribution
+                Individual Performance
               </Typography>
             </CardContent>
           </Card>
@@ -265,13 +265,34 @@ const CompanyMetrics: React.FC = () => {
           <ResponsiveContainer width="100%" height={400}>
             <LineChart data={portfolioContributionData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-              <YAxis />
+              <XAxis 
+                dataKey="date" 
+                tick={{ fontSize: 12 }}
+                interval="preserveStartEnd"
+                tickFormatter={(value) => {
+                  const date = new Date(value);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short' 
+                  });
+                }}
+              />
+              <YAxis 
+                tickFormatter={(value) => `${value.toFixed(1)}%`}
+              />
               <RechartsTooltip
                 formatter={(value: number, name: string) => [
                   `${value.toFixed(2)}%`,
                   name
                 ]}
+                labelFormatter={(label) => {
+                  const date = new Date(label);
+                  return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short',
+                    day: 'numeric'
+                  });
+                }}
               />
               {selectedCompany === 'all' ? (
                 availableCompanies.map((company, index) => (

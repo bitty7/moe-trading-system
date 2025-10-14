@@ -77,19 +77,62 @@ echo "🔧 Setting up environment..."
 cp .env.example .env  # If you have an example env file
 
 # Create logs directory
-mkdir -p logs
+mkdir -p backend/logs
 
-# Set permissions
-chmod +x run_full_backtest.sh
-
-echo "✅ EC2 setup completed successfully!"
-echo "🎯 Next steps:"
-echo "   1. Run: ./run_full_backtest.sh"
-echo "   2. Monitor progress in logs/"
-echo "   3. Download results when complete"
+# Setup dataset (unzip HS500-samples.zip)
+echo "📦 Setting up dataset..."
+chmod +x setup_dataset.sh
+./setup_dataset.sh
 
 # Display system info
 echo "📊 System Information:"
 echo "   GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader,nounits)"
 echo "   Memory: $(free -h | grep Mem | awk '{print $2}')"
-echo "   Storage: $(df -h / | tail -1 | awk '{print $4}') available" 
+echo "   Storage: $(df -h / | tail -1 | awk '{print $4}') available"
+
+echo "✅ EC2 setup completed successfully!"
+echo ""
+echo "="*70
+echo "🚀 STARTING FULL HISTORICAL BACKTEST (2000-2025)"
+echo "="*70
+
+# Set environment variables for GPU acceleration
+export OLLAMA_HOST=0.0.0.0:11434
+export CUDA_VISIBLE_DEVICES=0
+
+# Run smoke test first to verify everything works
+echo "🧪 Running smoke test first..."
+cd backend
+python3 run_backtest.py --config config_smoke_test.json
+
+if [ $? -eq 0 ]; then
+    echo "✅ Smoke test passed! System is working."
+    echo ""
+    echo "🚀 Starting full historical backtest (2000-2025, ~25 years)..."
+    echo "   This will take 3-5 hours. Running in background with nohup..."
+    echo ""
+    
+    # Run full historical backtest in background
+    nohup python3 run_backtest.py --config config_full_historical.json > ../full_backtest.log 2>&1 &
+    
+    # Save process ID
+    echo $! > ../backtest.pid
+    
+    echo "✅ Backtest started in background!"
+    echo "   Process ID: $(cat ../backtest.pid)"
+    echo ""
+    echo "📊 To monitor progress:"
+    echo "   tail -f ~/moe-trading-system/full_backtest.log"
+    echo ""
+    echo "📊 To check GPU usage:"
+    echo "   watch -n 5 nvidia-smi"
+    echo ""
+    echo "📊 To check if still running:"
+    echo "   ps aux | grep \$(cat ~/moe-trading-system/backtest.pid)"
+    echo ""
+    echo "⏰ Estimated completion: 3-5 hours"
+    echo "💰 Estimated cost: ~\$2.50 (g4dn.xlarge)"
+else
+    echo "❌ Smoke test failed! Please check the logs."
+    exit 1
+fi 

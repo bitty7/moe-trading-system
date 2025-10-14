@@ -1,10 +1,15 @@
-# MoE Trading System
+# MoE Trading System (Research Edition)
 
-A sophisticated Mixture of Experts (MoE) trading system that combines multiple AI experts to make trading decisions.
+A simple, reproducible Mixture of Experts (MoE) trading system intended for study and comparison. The current focus is to make it work reliably for backtesting so we can compare:
 
-## 🏗️ System Architecture
+- Local LLM-based experts (via Ollama)
+- Future pre-trained, non-LLM models (to be added later)
 
-The system uses four specialized AI experts:
+This repository prioritizes simplicity, clarity, and repeatability over feature completeness. It is designed to support a research/thesis workflow rather than a production MVP.
+
+## 🏗️ System Architecture (Minimum Necessary)
+
+The system uses four specialized experts. Today these are LLM-driven; later equivalents may be implemented using pre-trained non-LLM models for apples-to-apples comparison:
 - **Sentiment Expert**: Analyzes news sentiment
 - **Technical Expert**: Performs technical analysis on time series data
 - **Fundamental Expert**: Analyzes financial statements and ratios
@@ -26,7 +31,7 @@ The system uses four specialized AI experts:
    pip install -r requirements.txt
    ```
 
-3. **Install Ollama and models**
+3. **Install Ollama and models** (for the LLM-based baseline)
    ```bash
    # Install Ollama
    curl -fsSL https://ollama.ai/install.sh | sh
@@ -35,14 +40,14 @@ The system uses four specialized AI experts:
    ollama pull llama3.1:8b
    ```
 
-4. **Run a test backtest**
+4. **Run a test backtest** (historical, offline)
    ```bash
    python test_backtesting.py
    ```
 
-### EC2 Deployment (GPU Accelerated)
+### EC2 Deployment (Optional)
 
-For running full backtests on large datasets, deploy to AWS EC2 with GPU:
+For larger historical runs, you can deploy to AWS EC2. GPU is optional for the current setup; use if you plan to experiment with heavier models.
 
 1. **Launch EC2 instance**
    - Use `g4dn.xlarge` or `g5.xlarge` for GPU support
@@ -61,15 +66,11 @@ For running full backtests on large datasets, deploy to AWS EC2 with GPU:
    ./run_full_backtest.sh
    ```
 
-## 📊 Performance
+## 📊 Performance Notes
 
-### Local Performance
-- Processing rate: ~0.14 days/second
-- Suitable for testing and development
+These figures are indicative only and depend on your hardware and chosen models.
 
-### EC2 GPU Performance
-- Processing rate: ~2-5 days/second (estimated with GPU)
-- Suitable for full historical backtests
+When using GPU-capable models, backtests may accelerate significantly.
 
 ## 📁 Project Structure
 
@@ -87,7 +88,7 @@ src/
 │   └── test/                # Test suite
 ├── dataset/                 # Sample data
 ├── docs/                    # Documentation
-└── frontend/                # Web interface (future)
+└── frontend/                # Web interface (optional for visualization)
 ```
 
 ## 🔧 Configuration
@@ -120,9 +121,9 @@ OLLAMA_HOST=localhost:11434
 LOG_LEVEL=WARNING
 ```
 
-## 📈 Results
+## 📈 Results & Reproducibility
 
-The system generates comprehensive logs in the `logs/` directory:
+The system writes all results to `backend/logs/` for offline analysis and reproducible comparisons:
 
 - `config.json`: Backtest configuration
 - `portfolio_daily.json`: Daily portfolio metrics
@@ -143,6 +144,27 @@ Run individual tests:
 python test_backtesting.py
 ```
 
+## 🔬 Study Focus & Comparison Protocol
+
+We aim to compare two approaches on the same backtesting pipeline:
+
+1. LLM-based experts (current implementation)
+2. Pre-trained, non-LLM models (future work)
+
+Guidelines for fair comparison:
+- Keep data, dates, and portfolio settings identical between runs
+- Log experiment metadata (model names, versions, weights) in `config.json`
+- Use the same evaluation metrics (see `docs/FINANCIAL_METRICS.md`)
+- Store each run in a separate `backend/logs/<run_id>/` directory
+
+See `docs/PERFORMANCE_LOGGING.md` for the exact files produced and `docs/SYSTEM_OVERVIEW.md` for the minimal pipeline description.
+
+Key docs:
+- `docs/DATA_DESCRIPTION.md` — Dataset layout, formats, schemas, and loader behavior
+- `docs/MODELS_AND_ROUTING.md` — Expert interfaces and aggregation
+- `docs/FINANCIAL_METRICS.md` — Metrics used for evaluation and comparison
+- `docs/CONFIG_TEMPLATES.md` — Plug-and-play configs for LLM vs pre-trained runs
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -162,10 +184,10 @@ For issues and questions:
 2. Review existing issues
 3. Create a new issue with detailed information
 
-## 🔮 Roadmap
+## 🔮 Roadmap (Research-Oriented)
 
-- [ ] Parallel expert execution
-- [ ] Real-time trading integration
-- [ ] Web dashboard
-- [ ] Additional expert types
-- [ ] Advanced risk management 
+- [ ] Add pre-trained non-LLM expert variants (same interfaces)
+- [ ] Simple experiment registry and comparison tables
+- [ ] Minimal plots for side-by-side runs
+- [ ] Optional parallel expert execution
+- [ ] Optional web dashboard for visualization

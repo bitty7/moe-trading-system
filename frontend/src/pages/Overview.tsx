@@ -114,7 +114,31 @@ const Overview: React.FC = () => {
 
   const { portfolio_daily, results, config, tickers_daily, trades } = backtestData;
   
-
+  // Add date filtering notice
+  const showDateFilterNotice = () => {
+    if (!portfolio_daily || portfolio_daily.length === 0) return null;
+    
+    const firstDate = new Date(portfolio_daily[0]?.date);
+    const lastDate = new Date(portfolio_daily[portfolio_daily.length - 1]?.date);
+    
+    // Check if the original data might have included dates before 2019
+    if (config && config.start_date) {
+      const configStartDate = new Date(config.start_date);
+      if (configStartDate.getFullYear() < 2019) {
+        return (
+          <Alert severity="info" sx={{ mb: 3 }}>
+            <Typography variant="body2">
+              <strong>Note:</strong> Data is filtered to show only records from 2019 onwards. 
+              Original backtest period: {config.start_date} to {config.end_date}. 
+              Current display period: {portfolio_daily[0]?.date} to {portfolio_daily[portfolio_daily.length - 1]?.date}.
+            </Typography>
+          </Alert>
+        );
+      }
+    }
+    
+    return null;
+  };
   
   // Check if results exist, if not show a message
   if (!results || !results.portfolio_metrics) {
@@ -376,9 +400,12 @@ const Overview: React.FC = () => {
           Portfolio Overview
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Comprehensive analysis of your backtest performance and configuration
+          Comprehensive analysis of your backtest performance
         </Typography>
       </Box>
+      
+      {/* Date Filtering Notice */}
+      {showDateFilterNotice()}
 
       {/* Key Metrics Cards */}
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 3, mb: 4, width: '100%' }}>

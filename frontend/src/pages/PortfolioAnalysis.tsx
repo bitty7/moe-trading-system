@@ -66,6 +66,29 @@ const PortfolioAnalysis: React.FC = () => {
   const [showConfidence, setShowConfidence] = useState<boolean>(true);
   const [viewMode, setViewMode] = useState<'timeline' | 'heatmap' | 'patterns' | 'correlations'>('timeline');
 
+  // Add date filtering notice
+  const showDateFilterNotice = () => {
+    if (!backtestData?.portfolio_daily || backtestData.portfolio_daily.length === 0) return null;
+    
+    // Check if the original data might have included dates before 2019
+    if (backtestData.config && backtestData.config.start_date) {
+      const configStartDate = new Date(backtestData.config.start_date);
+      if (configStartDate.getFullYear() < 2019) {
+        return (
+          <Alert severity="info" sx={{ mb: 3 }}>
+            <Typography variant="body2">
+              <strong>Note:</strong> Data is filtered to show only records from 2019 onwards. 
+              Original backtest period: {backtestData.config.start_date} to {backtestData.config.end_date}. 
+              Current display period: {backtestData.portfolio_daily[0]?.date} to {backtestData.portfolio_daily[backtestData.portfolio_daily.length - 1]?.date}.
+            </Typography>
+          </Alert>
+        );
+      }
+    }
+    
+    return null;
+  };
+
   // Extract time series data from backtest data
   const timeSeriesData = useMemo(() => {
     if (!backtestData?.portfolio_daily) return [];
@@ -227,6 +250,9 @@ const PortfolioAnalysis: React.FC = () => {
           Comprehensive portfolio performance analysis, risk metrics, and trading patterns over time
         </Typography>
       </Box>
+      
+      {/* Date Filtering Notice */}
+      {showDateFilterNotice()}
 
       {/* Summary Cards */}
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: 3, mb: 4 }}>
@@ -401,7 +427,7 @@ const PortfolioAnalysis: React.FC = () => {
 
       {/* Main Analysis Charts */}
       {viewMode === 'timeline' && (
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' }, gap: 3, mb: 4 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr' }, gap: 3, mb: 4 }}>
           <Card elevation={3}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
@@ -418,30 +444,6 @@ const PortfolioAnalysis: React.FC = () => {
                   />
                   <Line dataKey="portfolioValue" stroke="#1976d2" strokeWidth={2} name="Portfolio Value" />
                 </LineChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-
-          <Card elevation={3}>
-            <CardContent>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                <TrendingUp color="primary" />
-                <Typography variant="h6">Daily Returns Distribution</Typography>
-              </Box>
-              <ResponsiveContainer width="100%" height={300}>
-                <RechartsBarChart data={timeSeriesData.slice(-30)}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <RechartsTooltip
-                    formatter={(value: number) => [`${(value * 100).toFixed(2)}%`, 'Daily Return']}
-                  />
-                  <Bar 
-                    dataKey="dailyReturn" 
-                    fill="#1976d2"
-                    name="Daily Return"
-                  />
-                </RechartsBarChart>
               </ResponsiveContainer>
             </CardContent>
           </Card>

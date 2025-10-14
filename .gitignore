@@ -39,11 +39,19 @@ venv.bak/
 logs/
 *.log
 
-# Data files
+# Data files (but keep configs and specific files)
 *.csv
-*.json
 *.xlsx
 *.xls
+
+# Keep config files
+!backend/config*.json
+!backend/**/config.json
+
+# Exclude unzipped dataset but keep the zip
+dataset/HS500-samples/
+dataset/HS500-samples
+!dataset/HS500-samples.zip
 
 # IDE
 .vscode/
@@ -69,6 +77,3 @@ tmp/
 
 # EC2 specific
 *.pem
-ec2_setup.sh
-run_full_backtest.sh
-results_summary.txt 

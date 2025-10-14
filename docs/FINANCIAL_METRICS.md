@@ -1,8 +1,11 @@
-# 💰 Financial Metrics for Evaluation
+# 💰 Financial Metrics for Comparative Evaluation
 
-This system is evaluated using **realistic financial performance metrics** to simulate and analyze the profitability and risk of its daily trading decisions. These metrics offer a well-rounded view of both return potential and exposure to losses, which is essential in assessing trading strategies in volatile markets.
+We evaluate runs to compare LLM-based experts with future pre-trained, non-LLM experts under identical backtesting conditions. The metrics below provide both return and risk perspectives for fair, reproducible comparisons.
 
-All metrics are computed using the system’s generated daily decisions for each ticker, based on historical price data.
+All metrics are computed from daily decisions and historical prices. Use the same:
+- Date range and dataset
+- Portfolio configuration (capital, sizing, constraints)
+- Transaction assumptions (costs, slippage)
 
 ---
 
@@ -84,16 +87,21 @@ All metrics are computed using the system’s generated daily decisions for each
 
 ## 🧪 Evaluation Notes
 
-- All metrics will be computed **per company** and **aggregated globally** across tickers.
+- Compute metrics both **per ticker** and **at the portfolio level**.
 - Risk-free rate is assumed to be 0 initially for simplicity.
 - Each daily decision (Buy/Hold/Sell) affects a simulated position, which affects the portfolio value.
 - Backtesting uses **daily closing prices**, with assumptions on transaction logic defined in the simulator.
+
+Recommended comparison outputs:
+- A table summarizing portfolio-level metrics for each run (LLM vs non-LLM)
+- Per-ticker breakdowns to diagnose differences
+- Time series plots of equity curves and drawdowns
 
 ---
 
 ## 🛠️ Implementation Tip
 
-Implement all metric calculations inside: backend/evaluation/metrics.py
+Implement all metric calculations inside: `backend/evaluation/metrics.py`.
 
 Daily trade logs, cash/position changes, and value snapshots should be stored during the backtest process to allow:
 - Post-hoc analysis

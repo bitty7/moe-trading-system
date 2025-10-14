@@ -1,17 +1,18 @@
-# Performance Logging System Documentation
+# Performance Logging System Documentation (Comparison-Ready)
 
 ## Overview
 
-This document outlines the comprehensive performance logging system for the MoE trading backtesting engine. The system captures all performance data, decisions, and metrics for a single backtest run to enable frontend visualization without requiring re-execution of the backtest.
+This document outlines the performance logging system for the MoE backtesting engine, with emphasis on side-by-side comparisons between LLM-based experts and future pre-trained, non-LLM experts. Each run is self-contained and reproducible.
 
 ## Objectives
 
-1. **Permanent Data Storage**: Save all backtest results permanently to avoid re-running expensive computations
-2. **Single Run Focus**: Capture complete data for one backtest run at a time
-3. **Frontend Ready**: JSON format for easy frontend integration
-4. **Drill-Down Capability**: Enable portfolio-level and individual company analysis
-5. **Expert Explainability**: Track expert contributions and confidence levels
-6. **Complete Decision History**: Log all decisions, trades, and performance metrics
+1. **Permanent Data Storage**: Save all backtest results permanently
+2. **Single Run Focus**: One folder per run (`backend/logs/<run_id>/`)
+3. **Frontend Ready**: JSON format for easy visualization
+4. **Drill-Down Capability**: Portfolio-level and per-ticker analysis
+5. **Expert Explainability**: Track expert contributions and confidence
+6. **Complete Decision History**: Log decisions, trades, and metrics
+7. **Comparison Metadata**: Record model identifiers and versions for fair comparisons
 
 ## Data Structure
 
@@ -33,7 +34,17 @@ This document outlines the comprehensive performance logging system for the MoE 
   "created_at": "2024-01-15T10:30:00Z",
   "completed_at": "2024-01-15T11:45:00Z",
   "total_trading_days": 262,
-  "status": "completed"
+  "status": "completed",
+  "experiment": {
+    "experts": {
+      "sentiment": {"impl": "llm", "model": "llama3.1:8b", "version": "2024-06"},
+      "timeseries": {"impl": "llm", "model": "llama3.1:8b"},
+      "chart": {"impl": "llm", "model": "llama3.1:8b"},
+      "fundamental": {"impl": "llm", "model": "llama3.1:8b"}
+    },
+    "aggregation": {"weights": [0.25, 0.25, 0.25, 0.25]},
+    "notes": "Baseline LLM run"
+  }
 }
 ```
 
@@ -400,10 +411,12 @@ logs/
 
 ## Future Considerations
 
-1. **Data Compression**: Implement compression for long backtests
-2. **Incremental Updates**: Support for real-time logging during backtest
-3. **Data Versioning**: Track changes to logging format
-4. **Performance Optimization**: Efficient file I/O for large datasets
-5. **Backup and Recovery**: Data backup and recovery mechanisms
+1. **Data Compression**: Compress long runs
+2. **Incremental Updates**: Optional real-time logging
+3. **Data Versioning**: Track logging format changes
+4. **Performance Optimization**: Efficient I/O for large datasets
+5. **Backup and Recovery**: Backup and recovery mechanisms
+
+For comparison reporting, generate a simple table summarizing `results.json` across runs (portfolio-level metrics), and optionally per-ticker diagnostics. This can be produced by a lightweight script or the frontend.
 
 This documentation serves as a comprehensive reference for implementing the performance logging system. All requirements, data structures, and implementation steps are detailed to ensure successful development and testing. 
