@@ -28,20 +28,7 @@ sudo apt-get install -y \
     nvidia-cuda-toolkit \
     nvidia-driver-535
 
-# Install Python dependencies
-echo "🐍 Installing Python dependencies..."
-pip3 install --upgrade pip
-pip3 install \
-    pandas \
-    numpy \
-    requests \
-    pillow \
-    matplotlib \
-    seaborn \
-    scikit-learn \
-    python-dotenv \
-    fastapi \
-    uvicorn
+# Note: Python dependencies will be installed in virtual environment later
 
 # Install Ollama
 echo "🤖 Installing Ollama..."
@@ -72,9 +59,21 @@ cd /home/ubuntu
 git clone https://github.com/bitty7/moe-trading-system.git
 cd moe-trading-system
 
-# Set up environment
-echo "🔧 Setting up environment..."
-cp .env.example .env  # If you have an example env file
+# Create virtual environment
+echo "🐍 Creating Python virtual environment..."
+python3 -m venv venv
+
+# Activate virtual environment
+echo "🔌 Activating virtual environment..."
+source venv/bin/activate
+
+# Upgrade pip in venv
+echo "⬆️  Upgrading pip..."
+pip install --upgrade pip
+
+# Install Python dependencies from requirements.txt
+echo "📦 Installing Python dependencies..."
+pip install -r requirements.txt
 
 # Create logs directory
 mkdir -p backend/logs
@@ -103,7 +102,11 @@ export CUDA_VISIBLE_DEVICES=0
 # Run smoke test first to verify everything works
 echo "🧪 Running smoke test first..."
 cd backend
-python3 run_backtest.py --config config_smoke_test.json
+
+# Ensure venv is activated
+source ../venv/bin/activate
+
+python run_backtest.py --config config_smoke_test.json
 
 if [ $? -eq 0 ]; then
     echo "✅ Smoke test passed! System is working."
@@ -112,8 +115,8 @@ if [ $? -eq 0 ]; then
     echo "   This will take 3-5 hours. Running in background with nohup..."
     echo ""
     
-    # Run full historical backtest in background
-    nohup python3 run_backtest.py --config config_full_historical.json > ../full_backtest.log 2>&1 &
+    # Run full historical backtest in background (with venv activated)
+    nohup ../venv/bin/python run_backtest.py --config config_full_historical.json > ../full_backtest.log 2>&1 &
     
     # Save process ID
     echo $! > ../backtest.pid

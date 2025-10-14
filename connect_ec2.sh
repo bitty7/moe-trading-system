@@ -3,7 +3,7 @@
 # This script connects to your EC2 instance
 
 # Set your EC2 details
-EC2_IP="13.51.166.193"
+EC2_IP="51.20.8.22"
 KEY_FILE="Moe-test.pem"
 
 echo "🔗 Connecting to EC2 instance..."
