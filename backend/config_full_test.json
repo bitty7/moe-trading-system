@@ -1,0 +1,49 @@
+{
+  "backtest": {
+    "start_date": "2019-01-01",
+    "end_date": "2019-12-31",
+    "tickers": ["aa", "aaau", "aacg"],
+    "seed": 42
+  },
+  "portfolio": {
+    "initial_capital": 1000000,
+    "position_sizing": 0.15,
+    "max_positions": 5,
+    "cash_reserve": 0.2,
+    "min_cash_reserve": 0.1
+  },
+  "execution": {
+    "transaction_cost": 0.001,
+    "slippage": 0.0005
+  },
+  "experts": {
+    "sentiment": {
+      "impl": "llm",
+      "model": "llama3.1:8b"
+    },
+    "timeseries": {
+      "impl": "llm",
+      "model": "llama3.1:8b"
+    },
+    "chart": {
+      "impl": "llm",
+      "model": "llama3.1:8b"
+    },
+    "fundamental": {
+      "impl": "llm",
+      "model": "llama3.1:8b"
+    }
+  },
+  "aggregation": {
+    "strategy": "entropy",
+    "fixed_weights": [0.25, 0.25, 0.25, 0.25],
+    "expert_order": ["sentiment", "timeseries", "chart", "fundamental"],
+    "performance_window": 30
+  },
+  "logging": {
+    "log_dir": "backend/logs/",
+    "run_id": "backtest_llm_full_2019"
+  },
+  "notes": "Full year test - 3 tickers, 1 year (2019) with complete data coverage"
+}
+
