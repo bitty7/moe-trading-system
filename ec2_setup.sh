@@ -53,15 +53,23 @@ echo "🔍 Verifying GPU support..."
 nvidia-smi
 ollama list
 
-# Clone the repository
-echo "📁 Cloning repository..."
-cd /home/ubuntu
-git clone https://github.com/bitty7/moe-trading-system.git
-cd moe-trading-system
+# Verify we're in the right directory
+echo "📁 Verifying repository location..."
+if [ ! -f "requirements.txt" ]; then
+    echo "❌ Error: requirements.txt not found!"
+    echo "   Please run this script from the moe-trading-system directory"
+    echo "   cd ~/moe-trading-system && ./ec2_setup.sh"
+    exit 1
+fi
+echo "✅ Repository verified"
 
-# Create virtual environment
-echo "🐍 Creating Python virtual environment..."
-python3 -m venv venv
+# Create virtual environment if it doesn't exist
+if [ -d "venv" ]; then
+    echo "🐍 Virtual environment already exists, skipping creation..."
+else
+    echo "🐍 Creating Python virtual environment..."
+    python3 -m venv venv
+fi
 
 # Activate virtual environment
 echo "🔌 Activating virtual environment..."
