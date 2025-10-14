@@ -8,6 +8,7 @@ requests>=2.28.0
 
 # Image processing (for chart expert)
 Pillow>=9.0.0
+opencv-python>=4.5.0
 
 # Machine learning utilities
 scikit-learn>=1.0.0
