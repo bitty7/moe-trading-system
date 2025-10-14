@@ -63,6 +63,11 @@ class HighPerformanceBacktester:
     def __init__(self, config: BacktesterConfig):
         self.config = config
         
+        # Extract aggregation config if available
+        self.aggregation_config = None
+        if hasattr(config, 'aggregation') and isinstance(config.aggregation, dict):
+            self.aggregation_config = config.aggregation
+        
         # Initialize components with minimal logging
         portfolio_config = PortfolioSimulatorConfig(
             initial_capital=config.initial_capital,
@@ -74,10 +79,14 @@ class HighPerformanceBacktester:
             slippage=config.slippage
         )
         
-        # Generate backtest ID
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        tickers_str = "_".join(config.tickers)
-        self.backtest_id = f"backtest_{timestamp}_{tickers_str}"
+        # Generate backtest ID - use run_id from config if available
+        if hasattr(config, 'run_id') and config.run_id:
+            self.backtest_id = config.run_id
+        else:
+            # Fallback to timestamp-based ID
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            tickers_str = "_".join(config.tickers)
+            self.backtest_id = f"backtest_{timestamp}_{tickers_str}"
         
         # Use the same folder for both loggers
         backtest_folder = f"logs/{self.backtest_id}"
@@ -173,16 +182,19 @@ class HighPerformanceBacktester:
             # Calculate final metrics
             final_metrics = self._calculate_final_metrics()
             
-            # Save results
+            # Calculate runtime
+            total_time = (datetime.now() - self.start_time).total_seconds()
+            
+            # Save results with runtime
             self.performance_logger.save_final_results(
                 final_metrics['portfolio_metrics'],
-                final_metrics['ticker_metrics']
+                final_metrics['ticker_metrics'],
+                runtime_seconds=total_time
             )
             
             # Calculate success rate
             success_rate = self.successful_decisions / max(self.total_decisions, 1)
             
-            total_time = (datetime.now() - self.start_time).total_seconds()
             logger.warning(f"✅ High-performance backtest completed in {total_time/3600:.2f} hours")
             logger.warning(f"Processing rate: {len(trading_dates)/total_time:.2f} days/second")
             
@@ -210,7 +222,8 @@ class HighPerformanceBacktester:
         try:
             # Get expert aggregation (this is the main bottleneck)
             aggregation_result = aggregate_experts(ticker, current_date.strftime('%Y-%m-%d'), 
-                                                 lookback_days=7, lookback_years=2)
+                                                 lookback_days=7, lookback_years=2,
+                                                 aggregation_config=self.aggregation_config)
             
             if aggregation_result is None:
                 return

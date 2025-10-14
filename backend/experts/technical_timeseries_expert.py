@@ -519,9 +519,9 @@ def technical_timeseries_expert(df: pd.DataFrame, ticker: str = "UNKNOWN", short
         return result
     
     # Final fallback: insufficient data
-    logger.warning("Fallback: Insufficient data for any rule, returning hold")
+    logger.warning("Fallback: Insufficient data for any rule, returning uncertain")
     return ExpertOutput(
-        probabilities=DecisionProbabilities(0.0, 1.0, 0.0),
+        probabilities=DecisionProbabilities(0.33, 0.34, 0.33),  # Uncertain (high entropy for low weight)
         confidence=ExpertConfidence(0.1, 0.9, 0.1),
         metadata=ExpertMetadata(
             expert_type="technical_timeseries",

@@ -47,15 +47,24 @@ class AggregationResult:
 
 class ExpertAggregator:
     """
-    Aggregates outputs from all four experts using dynamic weighting.
+    Aggregates outputs from all four experts using configurable weighting strategies.
+    Supports: fixed, entropy, confidence, and performance-based weighting.
     """
     
-    def __init__(self):
+    def __init__(self, aggregation_config: Optional[Dict[str, Any]] = None):
         """
-        Initialize expert aggregator with dynamic weighting.
+        Initialize expert aggregator with configurable weighting strategy.
+        
+        Args:
+            aggregation_config: Configuration dict with 'strategy' and 'fixed_weights'
         """
         self.expert_names = ['sentiment', 'technical', 'fundamental', 'chart']
-        logger.info("Expert aggregator initialized with dynamic weighting")
+        self.aggregation_config = aggregation_config or {}
+        self.strategy = self.aggregation_config.get('strategy', 'entropy')
+        self.fixed_weights_list = self.aggregation_config.get('fixed_weights', [0.25, 0.25, 0.25, 0.25])
+        self.expert_order = self.aggregation_config.get('expert_order', ['sentiment', 'timeseries', 'chart', 'fundamental'])
+        
+        logger.info(f"Expert aggregator initialized with strategy: {self.strategy}")
     
     def aggregate_experts(self, ticker: str, target_date: str, 
                          lookback_days: int = 7, lookback_years: int = 2) -> AggregationResult:
@@ -104,7 +113,7 @@ class ExpertAggregator:
             return AggregationResult(
                 final_probabilities=final_probabilities,
                 expert_contributions=expert_contributions,
-                aggregation_method="dynamic_gating",
+                aggregation_method=self.strategy,
                 gating_weights=gating_weights,
                 overall_confidence=overall_confidence,
                 decision_type=decision_type,
@@ -166,9 +175,100 @@ class ExpertAggregator:
             logger.error(f"Error running experts for {ticker}: {e}")
             return expert_outputs
     
+    def _calculate_entropy(self, probabilities: List[float]) -> float:
+        """
+        Calculate Shannon entropy of probability distribution.
+        Lower entropy = more certain/confident prediction.
+        
+        Args:
+            probabilities: List of probabilities [p_buy, p_hold, p_sell]
+            
+        Returns:
+            float: Entropy value
+        """
+        return -sum(p * np.log(p + 1e-10) for p in probabilities if p > 0)
+    
+    def _calculate_entropy_weights(self, expert_outputs: Dict[str, ExpertOutput]) -> Dict[str, float]:
+        """
+        Calculate weights based on inverse entropy (lower entropy = higher weight).
+        
+        Args:
+            expert_outputs: Outputs from all experts
+            
+        Returns:
+            Dict[str, float]: Normalized weights for each expert
+        """
+        entropies = {}
+        inverse_entropies = {}
+        
+        for name, output in expert_outputs.items():
+            probabilities = output.probabilities.to_list()
+            entropy = self._calculate_entropy(probabilities)
+            entropies[name] = entropy
+            # Inverse entropy with small epsilon to avoid division by zero
+            inverse_entropies[name] = 1.0 / (entropy + 1e-6)
+        
+        # Normalize to sum to 1.0
+        total = sum(inverse_entropies.values())
+        weights = {name: inv_ent / total for name, inv_ent in inverse_entropies.items()}
+        
+        logger.debug(f"Entropy-based weights: {weights} (entropies: {entropies})")
+        return weights
+    
+    def _calculate_confidence_weights(self, expert_outputs: Dict[str, ExpertOutput]) -> Dict[str, float]:
+        """
+        Calculate weights based on expert-reported confidence scores.
+        
+        Args:
+            expert_outputs: Outputs from all experts
+            
+        Returns:
+            Dict[str, float]: Normalized weights for each expert
+        """
+        confidences = {name: output.confidence.confidence_score 
+                      for name, output in expert_outputs.items()}
+        
+        total = sum(confidences.values())
+        if total > 0:
+            weights = {name: conf / total for name, conf in confidences.items()}
+        else:
+            # Fallback to uniform if all confidences are zero
+            num_experts = len(expert_outputs)
+            weights = {name: 1.0 / num_experts for name in expert_outputs.keys()}
+        
+        logger.debug(f"Confidence-based weights: {weights}")
+        return weights
+    
+    def _calculate_fixed_weights(self, expert_outputs: Dict[str, ExpertOutput]) -> Dict[str, float]:
+        """
+        Use fixed predefined weights from configuration.
+        
+        Args:
+            expert_outputs: Outputs from all experts
+            
+        Returns:
+            Dict[str, float]: Fixed weights for each expert
+        """
+        # Map fixed weights list to expert names based on expert_order
+        weights = {}
+        for idx, expert_name in enumerate(self.expert_order):
+            if expert_name in expert_outputs or expert_name == 'timeseries':
+                # Handle 'timeseries' vs 'technical' naming
+                actual_name = 'technical' if expert_name == 'timeseries' else expert_name
+                if actual_name in expert_outputs:
+                    weights[actual_name] = self.fixed_weights_list[idx] if idx < len(self.fixed_weights_list) else 0.25
+        
+        # Normalize in case not all experts are present
+        total = sum(weights.values())
+        if total > 0:
+            weights = {name: w / total for name, w in weights.items()}
+        
+        logger.debug(f"Fixed weights: {weights}")
+        return weights
+    
     def _calculate_gating_weights(self, expert_outputs: Dict[str, ExpertOutput]) -> Dict[str, float]:
         """
-        Calculate dynamic weights for each expert using gating network logic.
+        Calculate weights for experts based on configured strategy.
         
         Args:
             expert_outputs (Dict[str, ExpertOutput]): Expert outputs
@@ -176,36 +276,18 @@ class ExpertAggregator:
         Returns:
             Dict[str, float]: Weights for each expert
         """
-        # Dynamic weighting based on confidence and data quality
-        weights = {}
-        total_weight = 0.0
-        
-        for name, output in expert_outputs.items():
-            # Base weight from expert confidence
-            confidence_weight = output.confidence.confidence_score
-            
-            # Data quality bonus
-            data_quality_bonus = output.metadata.input_data_quality * 0.4
-            
-            # Decision certainty bonus (lower entropy = higher certainty)
-            probabilities = output.probabilities.to_list()
-            entropy = -sum(p * np.log(p + 1e-10) for p in probabilities if p > 0)
-            certainty_bonus = (1.0 - entropy / np.log(3)) * 0.4  # Normalize to [0, 1]
-            
-            # Calculate final weight (removed processing time penalty)
-            weight = confidence_weight + data_quality_bonus + certainty_bonus
-            weights[name] = max(0.1, weight)  # Minimum weight of 0.1
-            total_weight += weights[name]
-        
-        # Normalize weights to sum to 1.0
-        if total_weight > 0:
-            weights = {name: weight / total_weight for name, weight in weights.items()}
+        if self.strategy == "fixed":
+            weights = self._calculate_fixed_weights(expert_outputs)
+        elif self.strategy == "entropy":
+            weights = self._calculate_entropy_weights(expert_outputs)
+        elif self.strategy == "confidence":
+            weights = self._calculate_confidence_weights(expert_outputs)
         else:
-            # Fallback to uniform weights
-            num_experts = len(expert_outputs)
-            weights = {name: 1.0 / num_experts for name in expert_outputs.keys()}
+            # Default to entropy if unknown strategy
+            logger.warning(f"Unknown strategy '{self.strategy}', defaulting to entropy")
+            weights = self._calculate_entropy_weights(expert_outputs)
         
-        logger.info(f"Calculated gating weights: {weights}")
+        logger.info(f"Calculated weights using '{self.strategy}' strategy: {weights}")
         return weights
     
     def _aggregate_probabilities(self, expert_outputs: Dict[str, ExpertOutput], 
@@ -385,18 +467,20 @@ class ExpertAggregator:
         )
 
 def aggregate_experts(ticker: str, target_date: str, 
-                     lookback_days: int = 7, lookback_years: int = 2) -> AggregationResult:
+                     lookback_days: int = 7, lookback_years: int = 2,
+                     aggregation_config: Optional[Dict[str, Any]] = None) -> AggregationResult:
     """
-    Main interface for expert aggregation using dynamic weighting.
+    Main interface for expert aggregation using configurable weighting strategy.
     
     Args:
         ticker (str): Stock ticker symbol
         target_date (str): Target date for analysis (YYYY-MM-DD)
         lookback_days (int): Lookback period for sentiment and technical experts
         lookback_years (int): Lookback period for fundamental and chart experts
+        aggregation_config (Optional[Dict]): Aggregation configuration with strategy and weights
         
     Returns:
         AggregationResult: Aggregated expert outputs
     """
-    aggregator = ExpertAggregator()
+    aggregator = ExpertAggregator(aggregation_config)
     return aggregator.aggregate_experts(ticker, target_date, lookback_days, lookback_years) 

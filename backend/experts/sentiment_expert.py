@@ -340,7 +340,7 @@ Your probabilities:"""
         confidence_score = ConfidenceCalculator.calculate_fallback_confidence(reason, 0.0)
         
         return ExpertOutput(
-            probabilities=DecisionProbabilities(0.0, 1.0, 0.0),  # Hold
+            probabilities=DecisionProbabilities(0.33, 0.34, 0.33),  # Uncertain (high entropy for low weight)
             confidence=ExpertConfidence(confidence_score, 1.0 - confidence_score, 0.1),
             metadata=ExpertMetadata(
                 expert_type="sentiment",

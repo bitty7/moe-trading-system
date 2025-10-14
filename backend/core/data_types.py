@@ -708,20 +708,34 @@ class PortfolioSimulatorConfig:
 @dataclass
 class BacktesterConfig:
     """Configuration for backtesting."""
+    # Date range and tickers
     start_date: str = "2008-01-01"
     end_date: str = "2022-12-31"
     tickers: List[str] = field(default_factory=list)
+    
+    # Portfolio settings
     initial_capital: float = 100000
     position_sizing: float = 0.08
     max_positions: int = 10
     cash_reserve: float = 0.2
     min_cash_reserve: float = 0.1
+    
+    # Execution settings
     transaction_cost: float = 0.001
     slippage: float = 0.0005
+    
+    # Logging settings
     log_level: str = "INFO"
     enable_real_time_metrics: bool = True
     save_intermediate_results: bool = True
     checkpoint_interval: int = 30  # days
+    
+    # New fields for research-focused pipeline
+    seed: int = 42
+    experts: Dict[str, Dict[str, str]] = field(default_factory=dict)
+    aggregation: Dict[str, Any] = field(default_factory=dict)
+    run_id: str = ""
+    notes: str = ""
 
 def create_evaluation_portfolio_state(
     cash: float,

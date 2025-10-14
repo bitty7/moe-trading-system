@@ -79,11 +79,21 @@ class PerformanceLogger:
             "slippage": self.config.slippage,
             "tickers": self.config.tickers,
             "created_at": datetime.now().isoformat(),
-            "status": "running"
+            "status": "running",
+            "experiment": {
+                "experts": self.config.experts if hasattr(self.config, 'experts') else {},
+                "aggregation": {
+                    "strategy": self.config.aggregation.get("strategy", "entropy") if hasattr(self.config, 'aggregation') and isinstance(self.config.aggregation, dict) else "entropy",
+                    "fixed_weights": self.config.aggregation.get("fixed_weights", [0.25, 0.25, 0.25, 0.25]) if hasattr(self.config, 'aggregation') and isinstance(self.config.aggregation, dict) else [0.25, 0.25, 0.25, 0.25],
+                    "expert_order": self.config.aggregation.get("expert_order", ["sentiment", "timeseries", "chart", "fundamental"]) if hasattr(self.config, 'aggregation') and isinstance(self.config.aggregation, dict) else ["sentiment", "timeseries", "chart", "fundamental"]
+                },
+                "seed": self.config.seed if hasattr(self.config, 'seed') else 42,
+                "notes": self.config.notes if hasattr(self.config, 'notes') else ""
+            }
         }
         
         self._write_json_file("config.json", config_data)
-        logger.debug("Saved backtest configuration")
+        logger.debug("Saved backtest configuration with experiment metadata")
     
     def log_daily_portfolio(self, date: datetime, portfolio_state: PortfolioState):
         """
@@ -196,14 +206,19 @@ class PerformanceLogger:
         logger.debug(f"Logged trade: {trade_data['trade_id']} for {trade_record.ticker}")
     
     def save_final_results(self, portfolio_metrics: PortfolioMetrics, 
-                          ticker_metrics: Dict[str, TickerMetrics]):
+                          ticker_metrics: Dict[str, TickerMetrics],
+                          runtime_seconds: float = None):
         """
         Save final backtest results and complete the logging.
         
         Args:
             portfolio_metrics: Final portfolio performance metrics
             ticker_metrics: Final ticker-specific metrics
+            runtime_seconds: Total runtime in seconds (for research tracking)
         """
+        # Store runtime for results
+        self.runtime_seconds = runtime_seconds
+        
         # Update config status
         self._update_config_status("completed")
         
@@ -278,10 +293,20 @@ class PerformanceLogger:
         for ticker, metrics in ticker_metrics.items():
             ticker_dict[ticker] = asdict(metrics)
         
+        # Add runtime metrics if available
+        runtime_metrics = {}
+        if hasattr(self, 'runtime_seconds') and self.runtime_seconds is not None:
+            runtime_metrics = {
+                "total_runtime_seconds": self.runtime_seconds,
+                "total_runtime_minutes": self.runtime_seconds / 60,
+                "total_runtime_hours": self.runtime_seconds / 3600
+            }
+        
         results_data = {
             "portfolio_metrics": portfolio_dict,
-            "ticker_summary": ticker_dict
+            "ticker_summary": ticker_dict,
+            "runtime_metrics": runtime_metrics
         }
         
         self._write_json_file("results.json", results_data)
-        logger.debug("Saved final results summary") 
+        logger.debug("Saved final results summary with runtime metrics") 

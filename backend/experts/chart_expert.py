@@ -53,9 +53,14 @@ class ChartExpert:
             # Load chart data for the period
             chart_data = self._load_charts_for_period(ticker, target_date, lookback_years)
             
+            # Phase B: Try extended lookback if no recent charts (semi-annual carry-forward)
             if chart_data is None or len(chart_data.charts) == 0:
-                logger.warning(f"No chart data available for {ticker} around {target_date}")
-                return self._create_fallback_output("no_chart_data", start_time)
+                logger.info(f"No chart data in recent {lookback_years} years for {ticker}, trying extended lookback for semi-annual carry-forward")
+                chart_data = self._load_charts_for_period(ticker, target_date, lookback_years=10)
+            
+            if chart_data is None or len(chart_data.charts) == 0:
+                logger.warning(f"No chart data available for {ticker} (checked up to 10 years back)")
+                return self._create_fallback_output("no_chart_data_ever", start_time)
             
             # Try LLM analysis first
             llm_result = self._analyze_with_llm(ticker, target_date, chart_data, start_time)
@@ -356,7 +361,7 @@ Your probabilities:"""
         confidence_score = ConfidenceCalculator.calculate_fallback_confidence(reason, 0.0)
         
         return ExpertOutput(
-            probabilities=DecisionProbabilities(0.0, 1.0, 0.0),  # Hold
+            probabilities=DecisionProbabilities(0.33, 0.34, 0.33),  # Uncertain (no data ever)
             confidence=ExpertConfidence(confidence_score, 1.0 - confidence_score, 0.1),
             metadata=ExpertMetadata(
                 expert_type="chart",

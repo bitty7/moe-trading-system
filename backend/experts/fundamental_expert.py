@@ -65,9 +65,14 @@ class FundamentalExpert:
             # Load fundamental data for the period
             financial_data = self._load_fundamentals_for_period(ticker, target_date, lookback_years)
             
+            # Phase B: Try extended lookback if no recent data (quarterly carry-forward)
             if not financial_data or not financial_data.statements:
-                logger.warning(f"No fundamental data available for {ticker} around {target_date}")
-                return self._create_fallback_output("no_fundamental_data", start_time)
+                logger.info(f"No fundamental data in recent {lookback_years} years for {ticker}, trying extended lookback for quarterly carry-forward")
+                financial_data = self._load_fundamentals_for_period(ticker, target_date, lookback_years=10)
+            
+            if not financial_data or not financial_data.statements:
+                logger.warning(f"No fundamental data available for {ticker} (checked up to 10 years back)")
+                return self._create_fallback_output("no_fundamental_data_ever", start_time)
             
             # Calculate key financial ratios
             ratios = self._calculate_financial_ratios(financial_data)
@@ -404,7 +409,7 @@ Your probabilities:"""
         confidence_score = ConfidenceCalculator.calculate_fallback_confidence(reason, 0.0)
         
         return ExpertOutput(
-            probabilities=DecisionProbabilities(0.0, 1.0, 0.0),  # Hold
+            probabilities=DecisionProbabilities(0.33, 0.34, 0.33),  # Uncertain (no data ever)
             confidence=ExpertConfidence(confidence_score, 1.0 - confidence_score, 0.1),
             metadata=ExpertMetadata(
                 expert_type="fundamental",
