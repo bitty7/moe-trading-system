@@ -1,0 +1,90 @@
+[
+  {
+    "date": "2024-01-01",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-02",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-03",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-04",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-05",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-08",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-09",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  },
+  {
+    "date": "2024-01-10",
+    "total_value": 100000,
+    "cash": 100000,
+    "positions_value": 0,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 0,
+    "cash_reserve": 0.0,
+    "available_capital": 0.0
+  }
+]

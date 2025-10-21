@@ -1,0 +1,1541 @@
+{
+  "aa": [
+    {
+      "date": "2024-01-01",
+      "price": 33.49579620361328,
+      "decision": "hold",
+      "overall_confidence": 0.4382271229591563,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.15404633377668303,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2577743235094677,
+          "confidence": 0.46333765060117305,
+          "probabilities": [
+            0.23,
+            0.45,
+            0.32
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.28686970482550134,
+          "confidence": 0.521198077751731,
+          "probabilities": [
+            0.23,
+            0.41,
+            0.36
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.30130963788834786,
+          "confidence": 0.510670692445836,
+          "probabilities": [
+            0.42,
+            0.54,
+            0.04
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.251818174430149,
+        0.550368562794107,
+        0.19781326277574407
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Chart (weight: 0.30, confidence: 0.51) |   2. Fundamental (weight: 0.29, confidence: 0.52) |   3. Technical (weight: 0.26, confidence: 0.46) | Probabilities: Buy 42.0%, Hold 54.0%, Sell 4.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-02",
+      "price": 32.8160285949707,
+      "decision": "hold",
+      "overall_confidence": 0.4598944202251114,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14800648086298232,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2667538523026391,
+          "confidence": 0.4881369175582033,
+          "probabilities": [
+            0.13,
+            0.56,
+            0.31
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3235505748305766,
+          "confidence": 0.5834724626912329,
+          "probabilities": [
+            0.04,
+            0.61,
+            0.35
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.261689092003802,
+          "confidence": 0.4818638685392129,
+          "probabilities": [
+            0.32000000000000006,
+            0.5700000000000001,
+            0.11000000000000001
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.13136053323378283,
+        0.6439172712412791,
+        0.22472219552493813
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.32, confidence: 0.58) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.26, confidence: 0.48) | Probabilities: Buy 4.0%, Hold 61.0%, Sell 35.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-03",
+      "price": 31.02301788330078,
+      "decision": "hold",
+      "overall_confidence": 0.4367158930642221,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.15605676457801645,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2584036964611735,
+          "confidence": 0.45996758367014234,
+          "probabilities": [
+            0.25,
+            0.42,
+            0.33
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.31531017620497437,
+          "confidence": 0.5516315141510971,
+          "probabilities": [
+            0.25,
+            0.6,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2702293627558356,
+          "confidence": 0.4748479643290404,
+          "probabilities": [
+            0.32,
+            0.55,
+            0.13
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.2299018642484044,
+        0.6023985723304036,
+        0.16769956342119208
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.32, confidence: 0.55) |   2. Chart (weight: 0.27, confidence: 0.47) |   3. Technical (weight: 0.26, confidence: 0.46) | Probabilities: Buy 25.0%, Hold 60.0%, Sell 15.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-04",
+      "price": 30.668357849121097,
+      "decision": "hold",
+      "overall_confidence": 0.43123701044721907,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1578505404589566,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2626756079503765,
+          "confidence": 0.4615534569932187,
+          "probabilities": [
+            0.23,
+            0.42,
+            0.35
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.30906787932910934,
+          "confidence": 0.5396111463054092,
+          "probabilities": [
+            0.21,
+            0.56,
+            0.23
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.27040597226155755,
+          "confidence": 0.4712789727506557,
+          "probabilities": [
+            0.28,
+            0.56,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.20103331672093572,
+        0.5926796526888882,
+        0.20628703059017617
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.31, confidence: 0.54) |   2. Chart (weight: 0.27, confidence: 0.47) |   3. Technical (weight: 0.26, confidence: 0.46) | Probabilities: Buy 21.0%, Hold 56.0%, Sell 23.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-05",
+      "price": 31.653528213500977,
+      "decision": "hold",
+      "overall_confidence": 0.43338259683379793,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.15691496277489755,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2596713380119094,
+          "confidence": 0.4597795960069576,
+          "probabilities": [
+            0.24,
+            0.39,
+            0.37
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.30572842140159523,
+          "confidence": 0.537763480372587,
+          "probabilities": [
+            0.15,
+            0.5,
+            0.35
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2776852778115978,
+          "confidence": 0.4821643364892694,
+          "probabilities": [
+            0.35,
+            0.55,
+            0.1
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.20537023156715678,
+        0.5637778980967186,
+        0.2308518703361246
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.31, confidence: 0.54) |   2. Chart (weight: 0.28, confidence: 0.48) |   3. Technical (weight: 0.26, confidence: 0.46) | Probabilities: Buy 15.0%, Hold 50.0%, Sell 35.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-08",
+      "price": 31.259458541870117,
+      "decision": "hold",
+      "overall_confidence": 0.46311146558314004,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14725243360522283,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.27656671958171114,
+          "confidence": 0.5027271109032881,
+          "probabilities": [
+            0.13,
+            0.64,
+            0.23
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.32673846959939734,
+          "confidence": 0.5897885198689495,
+          "probabilities": [
+            0.02,
+            0.43,
+            0.55
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2494423772136688,
+          "confidence": 0.4676111463054092,
+          "probabilities": [
+            0.23,
+            0.56,
+            0.21
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.09986018969675423,
+        0.6044404073049133,
+        0.29569940299833253
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.33, confidence: 0.59) |   2. Technical (weight: 0.28, confidence: 0.50) |   3. Chart (weight: 0.25, confidence: 0.47) | Probabilities: Buy 2.0%, Hold 43.0%, Sell 55.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-09",
+      "price": 31.466346740722656,
+      "decision": "hold",
+      "overall_confidence": 0.4347798612650231,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.15694040928836306,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.26058142822899105,
+          "confidence": 0.4608431794581147,
+          "probabilities": [
+            0.23,
+            0.39,
+            0.38
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3180014001521142,
+          "confidence": 0.5527414823133094,
+          "probabilities": [
+            0.23,
+            0.61,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.26447676233053163,
+          "confidence": 0.46592403831536583,
+          "probabilities": [
+            0.32,
+            0.52,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.21770661447342438,
+        0.5900759368023357,
+        0.19221744872423996
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.32, confidence: 0.55) |   2. Chart (weight: 0.26, confidence: 0.47) |   3. Technical (weight: 0.26, confidence: 0.46) | Probabilities: Buy 23.0%, Hold 61.0%, Sell 16.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-10",
+      "price": 31.180646896362305,
+      "decision": "hold",
+      "overall_confidence": 0.4502652786454353,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14998470134487504,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.28272900086685787,
+          "confidence": 0.5040485123322591,
+          "probabilities": [
+            0.28,
+            0.62,
+            0.1
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.2791214411885211,
+          "confidence": 0.5209614255952435,
+          "probabilities": [
+            0.23,
+            0.4,
+            0.37
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.288164856599746,
+          "confidence": 0.511325961304544,
+          "probabilities": [
+            0.42,
+            0.55,
+            0.03
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.26439129148797336,
+        0.5954159294875957,
+        0.14019277902443097
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Chart (weight: 0.29, confidence: 0.51) |   2. Technical (weight: 0.28, confidence: 0.50) |   3. Fundamental (weight: 0.28, confidence: 0.52) | Probabilities: Buy 42.0%, Hold 55.0%, Sell 3.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-11",
+      "price": 30.42206382751465,
+      "decision": "hold",
+      "overall_confidence": 0.4607566635666234,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14777267086725915,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.269870683674684,
+          "confidence": 0.49274148231330944,
+          "probabilities": [
+            0.23,
+            0.61,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3242156000616091,
+          "confidence": 0.5850030714669776,
+          "probabilities": [
+            0.3,
+            0.65,
+            0.05
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2581410453964477,
+          "confidence": 0.47778451400535865,
+          "probabilities": [
+            0.23,
+            0.6,
+            0.17
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.21870737770484303,
+        0.6780185551867309,
+        0.10327406710842602
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.32, confidence: 0.59) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.26, confidence: 0.48) | Probabilities: Buy 30.0%, Hold 65.0%, Sell 5.0%",
+      "position": null
+    }
+  ],
+  "aaau": [
+    {
+      "date": "2024-01-01",
+      "price": 20.43000030517578,
+      "decision": "buy",
+      "overall_confidence": 0.4745472824701223,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14440696278539003,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2686523579632571,
+          "confidence": 0.49930455532030815,
+          "probabilities": [
+            0.3400000000000001,
+            0.5700000000000001,
+            0.09000000000000001
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.34726767470635117,
+          "confidence": 0.6255355458919554,
+          "probabilities": [
+            0.8,
+            0.15,
+            0.05
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.23967300454500176,
+          "confidence": 0.4536971771241032,
+          "probabilities": [
+            0.43,
+            0.26,
+            0.31
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.47221533342693917,
+        0.4119439392120997,
+        0.11584072736096124
+      ],
+      "reasoning": "Decision: BUY | Top contributing experts: |   1. Fundamental (weight: 0.35, confidence: 0.63) |   2. Technical (weight: 0.27, confidence: 0.50) |   3. Chart (weight: 0.24, confidence: 0.45) | Probabilities: Buy 80.0%, Hold 15.0%, Sell 5.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-02",
+      "price": 20.38999938964844,
+      "decision": "hold",
+      "overall_confidence": 0.44890719457430517,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1513969963516748,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2724973410503748,
+          "confidence": 0.48767039333127926,
+          "probabilities": [
+            0.24,
+            0.59,
+            0.17
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.31394519837271767,
+          "confidence": 0.5618568068464347,
+          "probabilities": [
+            0.11,
+            0.62,
+            0.27
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2621604642252327,
+          "confidence": 0.4748479643290404,
+          "probabilities": [
+            0.32,
+            0.55,
+            0.13
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.18382468222516335,
+        0.6510047058863588,
+        0.16517061188847776
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.31, confidence: 0.56) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.26, confidence: 0.47) | Probabilities: Buy 11.0%, Hold 62.0%, Sell 27.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 110587.5916519165,
+        "unrealized_pnl": 0.0,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-03",
+      "price": 20.219999313354492,
+      "decision": "hold",
+      "overall_confidence": 0.4556598208754388,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14942963472438792,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.27015458456961555,
+          "confidence": 0.4892125010170073,
+          "probabilities": [
+            0.22,
+            0.6,
+            0.18
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.32206320899028196,
+          "confidence": 0.5775544971578511,
+          "probabilities": [
+            0.05,
+            0.6,
+            0.35
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2583525717157145,
+          "confidence": 0.4743316541780247,
+          "probabilities": [
+            0.21,
+            0.59,
+            0.2
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.12979120911512956,
+        0.6571883281725981,
+        0.21302046271227237
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.32, confidence: 0.58) |   2. Technical (weight: 0.27, confidence: 0.49) |   3. Chart (weight: 0.26, confidence: 0.47) | Probabilities: Buy 5.0%, Hold 60.0%, Sell 35.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 110371.066696167,
+        "unrealized_pnl": -216.52495574949248,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-04",
+      "price": 20.239999771118164,
+      "decision": "hold",
+      "overall_confidence": 0.4752256235598339,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14561926033580858,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.24889435313274177,
+          "confidence": 0.4702332960429267,
+          "probabilities": [
+            0.23,
+            0.51,
+            0.26
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3579856373650331,
+          "confidence": 0.6358398779299111,
+          "probabilities": [
+            0.21,
+            0.78,
+            0.01
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.24750074916641657,
+          "confidence": 0.4687005672266802,
+          "probabilities": [
+            0.32,
+            0.53,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.21162292480044084,
+        0.6829595746364335,
+        0.10541750056312568
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.36, confidence: 0.64) |   2. Technical (weight: 0.25, confidence: 0.47) |   3. Chart (weight: 0.25, confidence: 0.47) | Probabilities: Buy 21.0%, Hold 78.0%, Sell 1.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 109450.85628318787,
+        "unrealized_pnl": -1136.7353687286377,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-05",
+      "price": 20.239999771118164,
+      "decision": "hold",
+      "overall_confidence": 0.48601158016456636,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14302717565041864,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.24615552960445752,
+          "confidence": 0.4725077450272869,
+          "probabilities": [
+            0.43,
+            0.41,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3668256334748363,
+          "confidence": 0.6562936193528859,
+          "probabilities": [
+            0.03,
+            0.86,
+            0.11
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2439916612702876,
+          "confidence": 0.4699060005517954,
+          "probabilities": [
+            0.31,
+            0.54,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.19248906172795097,
+        0.6911764846625608,
+        0.11633445360948834
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.37, confidence: 0.66) |   2. Technical (weight: 0.25, confidence: 0.47) |   3. Chart (weight: 0.24, confidence: 0.47) | Probabilities: Buy 3.0%, Hold 86.0%, Sell 11.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 109559.11876106262,
+        "unrealized_pnl": -1028.4728908538818,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-08",
+      "price": 20.079999923706055,
+      "decision": "hold",
+      "overall_confidence": 0.47109876200475853,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.14646975457214811,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.27236681988795536,
+          "confidence": 0.49914290174866116,
+          "probabilities": [
+            0.31000000000000005,
+            0.5900000000000001,
+            0.10000000000000002
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.34890778844428766,
+          "confidence": 0.6211759471289032,
+          "probabilities": [
+            0.02,
+            0.75,
+            0.23
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2322556370956088,
+          "confidence": 0.44678655415526747,
+          "probabilities": [
+            0.42,
+            0.28,
+            0.3
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.18895923751430765,
+        0.633878598026028,
+        0.1771621644596644
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.35, confidence: 0.62) |   2. Technical (weight: 0.27, confidence: 0.50) |   3. Chart (weight: 0.23, confidence: 0.45) | Probabilities: Buy 2.0%, Hold 75.0%, Sell 23.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 109559.11876106262,
+        "unrealized_pnl": -1028.4728908538818,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-09",
+      "price": 20.079999923706055,
+      "decision": "hold",
+      "overall_confidence": 0.43586274714972384,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.15533798652939387,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.27904868251985177,
+          "confidence": 0.4869994101012391,
+          "probabilities": [
+            0.23,
+            0.59,
+            0.18
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.28783521301550574,
+          "confidence": 0.5194155548187193,
+          "probabilities": [
+            0.32,
+            0.42,
+            0.26
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.27777811793524865,
+          "confidence": 0.4857341494650327,
+          "probabilities": [
+            0.32000000000000006,
+            0.5800000000000001,
+            0.10000000000000002
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.2451774628838073,
+        0.601978807085063,
+        0.15284373003112964
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.29, confidence: 0.52) |   2. Technical (weight: 0.28, confidence: 0.49) |   3. Chart (weight: 0.28, confidence: 0.49) | Probabilities: Buy 32.0%, Hold 42.0%, Sell 26.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 108693.03958702087,
+        "unrealized_pnl": -1894.5520648956299,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-10",
+      "price": 20.040000915527344,
+      "decision": "hold",
+      "overall_confidence": 0.5420343972518928,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1309005238043331,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.23197979675787403,
+          "confidence": 0.4823430517549813,
+          "probabilities": [
+            0.24,
+            0.57,
+            0.19
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.4010442242069132,
+          "confidence": 0.7522563016697318,
+          "probabilities": [
+            0.0,
+            0.99,
+            0.01
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.23607545523087964,
+          "confidence": 0.48866773014180376,
+          "probabilities": [
+            0.21,
+            0.64,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.10525099682037449,
+        0.8112510812689283,
+        0.08349792191069716
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.40, confidence: 0.75) |   2. Chart (weight: 0.24, confidence: 0.49) |   3. Technical (weight: 0.23, confidence: 0.48) | Probabilities: Buy 0.0%, Hold 99.0%, Sell 1.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 108693.03958702087,
+        "unrealized_pnl": -1894.5520648956299,
+        "status": "OPEN"
+      }
+    },
+    {
+      "date": "2024-01-11",
+      "price": 20.079999923706055,
+      "decision": "hold",
+      "overall_confidence": 0.43652682263912707,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1555709841529873,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.2704362767271147,
+          "confidence": 0.47583586650817,
+          "probabilities": [
+            0.21,
+            0.54,
+            0.25
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.3046045583214729,
+          "confidence": 0.5396111463054092,
+          "probabilities": [
+            0.23,
+            0.56,
+            0.21
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2693881807984251,
+          "confidence": 0.4748479643290404,
+          "probabilities": [
+            0.32,
+            0.55,
+            0.13
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.21305488438212888,
+        0.6203486256847879,
+        0.1665964899330832
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Fundamental (weight: 0.30, confidence: 0.54) |   2. Technical (weight: 0.27, confidence: 0.48) |   3. Chart (weight: 0.27, confidence: 0.47) | Probabilities: Buy 23.0%, Hold 56.0%, Sell 21.0%",
+      "position": {
+        "quantity": 5413,
+        "avg_price": 20.43000030517578,
+        "current_value": 108476.52495574951,
+        "unrealized_pnl": -2111.066696166992,
+        "status": "OPEN"
+      }
+    }
+  ],
+  "aacg": [
+    {
+      "date": "2024-01-01",
+      "price": 1.159999966621399,
+      "decision": "hold",
+      "overall_confidence": 0.35543246377778004,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.17553311513027864,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.32888856828497615,
+          "confidence": 0.5018568068464346,
+          "probabilities": [
+            0.27,
+            0.62,
+            0.11
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.17553311513027864,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.3200452014544665,
+          "confidence": 0.48515295139027836,
+          "probabilities": [
+            0.38,
+            0.52,
+            0.1
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.21041708998964084,
+        0.7214006473535651,
+        0.06818226265679403
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.33, confidence: 0.50) |   2. Chart (weight: 0.32, confidence: 0.49) |   3. Sentiment (weight: 0.18, confidence: 0.10) | Probabilities: Buy 27.0%, Hold 62.0%, Sell 11.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-02",
+      "price": 0.9700000286102296,
+      "decision": "hold",
+      "overall_confidence": 0.34469935765819665,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.18029599421428436,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3203463850933156,
+          "confidence": 0.4832269961162178,
+          "probabilities": [
+            0.3,
+            0.55,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.18029599421428436,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.31906162647811565,
+          "confidence": 0.4821643364892694,
+          "probabilities": [
+            0.35,
+            0.55,
+            0.1
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.20777548479533514,
+        0.7122663947928559,
+        0.0799581204118089
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.32, confidence: 0.48) |   2. Chart (weight: 0.32, confidence: 0.48) |   3. Sentiment (weight: 0.18, confidence: 0.10) | Probabilities: Buy 30.0%, Hold 55.0%, Sell 15.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-03",
+      "price": 1.0399999618530271,
+      "decision": "hold",
+      "overall_confidence": 0.3256378538365433,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1879678910434405,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3260053974055181,
+          "confidence": 0.4750706691062267,
+          "probabilities": [
+            0.45,
+            0.4,
+            0.15
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.1879678910434405,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2980588205076009,
+          "confidence": 0.44678655415526747,
+          "probabilities": [
+            0.42,
+            0.3,
+            0.28
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.2718871334456755,
+        0.5957555872013686,
+        0.132357279352956
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.33, confidence: 0.48) |   2. Chart (weight: 0.30, confidence: 0.45) |   3. Sentiment (weight: 0.19, confidence: 0.10) | Probabilities: Buy 45.0%, Hold 40.0%, Sell 15.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-04",
+      "price": 1.090000033378601,
+      "decision": "hold",
+      "overall_confidence": 0.35011219756805495,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.1783585664815182,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3119856961629794,
+          "confidence": 0.47792403831536584,
+          "probabilities": [
+            0.32,
+            0.52,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.1783585664815182,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.33129717087398414,
+          "confidence": 0.4990535235442686,
+          "probabilities": [
+            0.32,
+            0.61,
+            0.07
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.20585051745182834,
+        0.721040969200916,
+        0.0731085133472556
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Chart (weight: 0.33, confidence: 0.50) |   2. Technical (weight: 0.31, confidence: 0.48) |   3. Sentiment (weight: 0.18, confidence: 0.10) | Probabilities: Buy 32.0%, Hold 61.0%, Sell 7.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-05",
+      "price": 1.1100000143051147,
+      "decision": "hold",
+      "overall_confidence": 0.3686676008584353,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.17334770034389224,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3726745777263977,
+          "confidence": 0.5549745087433918,
+          "probabilities": [
+            0.11,
+            0.79,
+            0.1
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.17334770034389224,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.28063002158581785,
+          "confidence": 0.45317022525299633,
+          "probabilities": [
+            0.42,
+            0.38,
+            0.2
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.15885881261594723,
+        0.7477477252942495,
+        0.09339346208980334
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.37, confidence: 0.55) |   2. Chart (weight: 0.28, confidence: 0.45) |   3. Sentiment (weight: 0.17, confidence: 0.10) | Probabilities: Buy 11.0%, Hold 79.0%, Sell 10.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-08",
+      "price": 1.0499999523162842,
+      "decision": "hold",
+      "overall_confidence": 0.35554980740106534,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.17632764978472817,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3282388469210715,
+          "confidence": 0.49952460410533805,
+          "probabilities": [
+            0.18,
+            0.64,
+            0.18
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.17632764978472817,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.3191058535094722,
+          "confidence": 0.48987160738259095,
+          "probabilities": [
+            0.32000000000000006,
+            0.5900000000000001,
+            0.09000000000000001
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.16119686556882398,
+        0.7510006151695305,
+        0.08780251926164535
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.33, confidence: 0.50) |   2. Chart (weight: 0.32, confidence: 0.49) |   3. Sentiment (weight: 0.18, confidence: 0.10) | Probabilities: Buy 18.0%, Hold 64.0%, Sell 18.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-09",
+      "price": 1.1100000143051147,
+      "decision": "hold",
+      "overall_confidence": 0.37606968817940206,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.16930648528866657,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3360993259626185,
+          "confidence": 0.5232987092302996,
+          "probabilities": [
+            0.05,
+            0.64,
+            0.31
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.16930648528866657,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.32528770346004826,
+          "confidence": 0.511325961304544,
+          "probabilities": [
+            0.42,
+            0.55,
+            0.03
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.1534258017513512,
+        0.7326247760964356,
+        0.1139494221522132
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.34, confidence: 0.52) |   2. Chart (weight: 0.33, confidence: 0.51) |   3. Sentiment (weight: 0.17, confidence: 0.10) | Probabilities: Buy 5.0%, Hold 64.0%, Sell 31.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-10",
+      "price": 1.149999976158142,
+      "decision": "hold",
+      "overall_confidence": 0.3352526099985372,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.18428649215610296,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3365542582285143,
+          "confidence": 0.49274148231330944,
+          "probabilities": [
+            0.23,
+            0.61,
+            0.16
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.18428649215610296,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.2948727574592797,
+          "confidence": 0.4495534569932187,
+          "probabilities": [
+            0.42,
+            0.35,
+            0.23
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.2012540375254558,
+        0.6770765469423475,
+        0.12166941553219662
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.34, confidence: 0.49) |   2. Chart (weight: 0.29, confidence: 0.45) |   3. Sentiment (weight: 0.18, confidence: 0.10) | Probabilities: Buy 23.0%, Hold 61.0%, Sell 16.0%",
+      "position": null
+    },
+    {
+      "date": "2024-01-11",
+      "price": 1.0199999809265137,
+      "decision": "hold",
+      "overall_confidence": 0.36565738128575553,
+      "expert_contributions": {
+        "sentiment": {
+          "weight": 0.17277398110397088,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "technical": {
+          "weight": 0.3289317484159711,
+          "confidence": 0.5076590142847214,
+          "probabilities": [
+            0.21,
+            0.66,
+            0.13
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "fundamental": {
+          "weight": 0.17277398110397088,
+          "confidence": 0.1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reasoning": "No reasoning provided"
+        },
+        "chart": {
+          "weight": 0.32552028937608707,
+          "confidence": 0.5041695502658757,
+          "probabilities": [
+            0.32,
+            0.62,
+            0.06
+          ],
+          "reasoning": "No reasoning provided"
+        }
+      },
+      "final_probabilities": [
+        0.1732421597677018,
+        0.7644654955756567,
+        0.06229234465664147
+      ],
+      "reasoning": "Decision: HOLD | Top contributing experts: |   1. Technical (weight: 0.33, confidence: 0.51) |   2. Chart (weight: 0.33, confidence: 0.50) |   3. Sentiment (weight: 0.17, confidence: 0.10) | Probabilities: Buy 21.0%, Hold 66.0%, Sell 13.0%",
+      "position": null
+    }
+  ]
+}

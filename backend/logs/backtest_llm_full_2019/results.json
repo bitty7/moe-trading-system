@@ -1,0 +1,82 @@
+{
+  "portfolio_metrics": {
+    "total_return": 0.09999394916924392,
+    "annualized_return": 0.10035401691443413,
+    "sharpe_ratio": 1.2561111186774232,
+    "sortino_ratio": 1.6875835464285553,
+    "calmar_ratio": 1.822175025858697,
+    "max_drawdown": 0.055073752790099,
+    "drawdown_duration": 94,
+    "volatility": 0.07989262687213394,
+    "win_rate": 0.4,
+    "profit_factor": 3.5329801662896108,
+    "total_trades": 20,
+    "avg_trade_return": 0.0009309405019142216,
+    "best_trade": 0.021795327889320596,
+    "worst_trade": -0.0035583703319814262,
+    "avg_hold_time": 30.0,
+    "cash_drag": 0.47642916149057624,
+    "diversification_score": 0.09923664122137404
+  },
+  "ticker_summary": {
+    "aa": {
+      "ticker": "aa",
+      "total_return": 0.0,
+      "annualized_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "sortino_ratio": 0.0,
+      "calmar_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "drawdown_duration": 0,
+      "volatility": 0.0,
+      "win_rate": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": 0.0,
+      "profit_factor": 0.0,
+      "contribution_to_portfolio": 0.0,
+      "num_trades": 0,
+      "avg_hold_time": 0.0
+    },
+    "aaau": {
+      "ticker": "aaau",
+      "total_return": 0.06851048103162095,
+      "annualized_return": 0.06875365943195155,
+      "sharpe_ratio": 0.0,
+      "sortino_ratio": Infinity,
+      "calmar_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "drawdown_duration": 0,
+      "volatility": 0.0,
+      "win_rate": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": -0.7958938006521225,
+      "profit_factor": 0.0,
+      "contribution_to_portfolio": 0.9030275809596512,
+      "num_trades": 14,
+      "avg_hold_time": 5.0
+    },
+    "aacg": {
+      "ticker": "aacg",
+      "total_return": 0.08361437765807915,
+      "annualized_return": 0.08391323929508232,
+      "sharpe_ratio": 0.0,
+      "sortino_ratio": Infinity,
+      "calmar_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "drawdown_duration": 0,
+      "volatility": 0.0,
+      "win_rate": 1.0,
+      "avg_win": 0.08361437765807915,
+      "avg_loss": 0.0,
+      "profit_factor": 0.0,
+      "contribution_to_portfolio": 0.0,
+      "num_trades": 6,
+      "avg_hold_time": 5.0
+    }
+  },
+  "runtime_metrics": {
+    "total_runtime_seconds": 1409.017963,
+    "total_runtime_minutes": 23.483632716666666,
+    "total_runtime_hours": 0.39139387861111113
+  }
+}

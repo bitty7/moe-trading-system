@@ -1,0 +1,101 @@
+[
+  {
+    "date": "2024-01-01",
+    "total_value": 999834.1186125221,
+    "cash": 889246.5269606056,
+    "positions_value": 110587.5916519165,
+    "daily_return": 0.0,
+    "cumulative_return": 0.0,
+    "num_positions": 1,
+    "cash_reserve": 199966.82372250443,
+    "available_capital": 689279.7032381012
+  },
+  {
+    "date": "2024-01-02",
+    "total_value": 999617.5936567726,
+    "cash": 889246.5269606056,
+    "positions_value": 110371.06669616699,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0003824063432273688,
+    "num_positions": 1,
+    "cash_reserve": 199966.82372250443,
+    "available_capital": 689279.7032381012
+  },
+  {
+    "date": "2024-01-03",
+    "total_value": 998697.3832437935,
+    "cash": 889246.5269606056,
+    "positions_value": 109450.85628318787,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0013026167562064947,
+    "num_positions": 1,
+    "cash_reserve": 199923.51873135453,
+    "available_capital": 689323.0082292511
+  },
+  {
+    "date": "2024-01-04",
+    "total_value": 998805.6457216683,
+    "cash": 889246.5269606056,
+    "positions_value": 109559.11876106262,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0011943542783317389,
+    "num_positions": 1,
+    "cash_reserve": 199739.47664875872,
+    "available_capital": 689507.0503118469
+  },
+  {
+    "date": "2024-01-05",
+    "total_value": 998805.6457216683,
+    "cash": 889246.5269606056,
+    "positions_value": 109559.11876106262,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0011943542783317389,
+    "num_positions": 1,
+    "cash_reserve": 199761.12914433365,
+    "available_capital": 689485.397816272
+  },
+  {
+    "date": "2024-01-08",
+    "total_value": 997939.5665476265,
+    "cash": 889246.5269606056,
+    "positions_value": 108693.03958702087,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0020604334523734867,
+    "num_positions": 1,
+    "cash_reserve": 199761.12914433365,
+    "available_capital": 689485.397816272
+  },
+  {
+    "date": "2024-01-09",
+    "total_value": 997939.5665476265,
+    "cash": 889246.5269606056,
+    "positions_value": 108693.03958702087,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0020604334523734867,
+    "num_positions": 1,
+    "cash_reserve": 199587.91330952532,
+    "available_capital": 689658.6136510803
+  },
+  {
+    "date": "2024-01-10",
+    "total_value": 997723.0519163552,
+    "cash": 889246.5269606056,
+    "positions_value": 108476.52495574951,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0022769480836448493,
+    "num_positions": 1,
+    "cash_reserve": 199587.91330952532,
+    "available_capital": 689658.6136510803
+  },
+  {
+    "date": "2024-01-11",
+    "total_value": 997939.5665476265,
+    "cash": 889246.5269606056,
+    "positions_value": 108693.03958702087,
+    "daily_return": 0.0,
+    "cumulative_return": -0.0020604334523734867,
+    "num_positions": 1,
+    "cash_reserve": 199544.61038327104,
+    "available_capital": 689701.9165773346
+  }
+]
